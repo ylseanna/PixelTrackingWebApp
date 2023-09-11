@@ -17,4 +17,6 @@ EXPOSE 5000
 
 FROM dev AS prod
 WORKDIR /app
-COPY . .
+COPY --chown=python:python . .
+
+CMD ["gunicorn", "--bind", "0.0.0.0:5000", "wsgi:app"]
