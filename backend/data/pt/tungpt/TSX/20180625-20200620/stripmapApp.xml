@@ -1,0 +1,15 @@
+
+        <stripmapApp>
+            <component name="insar">
+                <property  name="Sensor name">TerraSARX</property>
+                <component name="reference">
+                    <catalog>reference.xml</catalog>
+                </component>
+                <component name="secondary">
+                    <catalog>secondary.xml</catalog>
+                </component>
+                <property name="demFilename">/home/data/DEM/LMI/ArcticDEM/v1/Iceland_10m.dem</property>
+                <property name="do denseoffsets">True</property>
+                <property name="regionOfInterest">[63.699855,63.583704,-19.476357,-19.205132]</property>
+            </component>
+        </stripmapApp>

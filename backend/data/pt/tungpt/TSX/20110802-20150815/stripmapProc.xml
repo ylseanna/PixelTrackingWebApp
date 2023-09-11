@@ -1,0 +1,196 @@
+<stripmapProc>
+    <stripmapProc>
+        <ISCE_VERSION>Release: 2.6.3, svn-, 20230418. Current svn-</ISCE_VERSION>
+    </stripmapProc>
+    <reference>
+        <sensor>
+            <xml>/home/data/TSX/South/T41_s011_6345_Katla/20110802/TSX-1.SAR.L1B/TDX1_SAR__SSC______SM_S_SRA_20110802T184744_20110802T184751/TDX1_SAR__SSC______SM_S_SRA_20110802T184744_20110802T184751.xml</xml>
+            <output>reference_slc/reference.slc</output>
+            <family>terrasarx</family>
+            <name>reference</name>
+        </sensor>
+        <width>15252</width>
+        <iBias>None</iBias>
+        <qBias>None</qBias>
+        <range_sampling_rate>109886121.96666665</range_sampling_rate>
+        <prf>3777.713213925559</prf>
+        <pri>0.00026471040636800053</pri>
+        <pulse_length>1.0</pulse_length>
+        <chirp_slope>100000000.0</chirp_slope>
+        <wavelength>0.031066577767171335</wavelength>
+        <lookSide>-1</lookSide>
+        <frame>
+            <schheight>None</schheight>
+            <schvelocity>None</schvelocity>
+            <number_range_bins>15252</number_range_bins>
+            <squint_angle>4.586573455121409e-05</squint_angle>
+            <polarization>HH</polarization>
+            <number_of_samples>15252</number_of_samples>
+            <number_of_lines>28457</number_of_lines>
+            <starting_range>642715.5740281213</starting_range>
+            <far_range>663520.9063466238</far_range>
+            <sensing_start>2011-08-02 18:47:44.391368</sensing_start>
+            <sensing_mid>2011-08-02 18:47:48.157668</sensing_mid>
+            <sensing_stop>2011-08-02 18:47:51.923968</sensing_stop>
+            <track_number>None</track_number>
+            <frame_number>None</frame_number>
+            <orbit_number>6190</orbit_number>
+            <pass_direction>None</pass_direction>
+            <processing_facility>TS-X PGS NZ</processing_facility>
+            <processing_system>None</processing_system>
+            <processing_level>None</processing_level>
+            <processing_system_version>None</processing_system_version>
+            <aux_file>None</aux_file>
+            <doppler_vs_pixel>[13.581451661146506, -3.0425841043271598e-05, 9.7780902748627e-10]</doppler_vs_pixel>
+            <family>frame</family>
+            <name>frame_name</name>
+        </frame>
+        <instrument>
+            <prf>3777.713213925559</prf>
+            <range_sampling_rate>109886121.96666665</range_sampling_rate>
+            <range_first_sample>None</range_first_sample>
+            <chirp_slope>100000000.0</chirp_slope>
+            <radar_wavelength>0.031066577767171335</radar_wavelength>
+            <radar_frequency>9649999438.2</radar_frequency>
+            <iq_flip>None</iq_flip>
+            <inphase_bias>None</inphase_bias>
+            <quadrature_bias>None</quadrature_bias>
+            <caltone_location>None</caltone_location>
+            <range_pulse_duration>None</range_pulse_duration>
+            <incidence_angle>39.40498761749203</incidence_angle>
+            <range_pixel_size>1.364105187418209</range_pixel_size>
+            <azimuth_pixel_size>None</azimuth_pixel_size>
+            <pulse_lenght>1.0</pulse_lenght>
+            <family>radar</family>
+            <name>radar_name</name>
+        </instrument>
+        <platform>
+            <spacecraft_name>None</spacecraft_name>
+            <mission>TDX-1</mission>
+            <antenna_length>4.784</antenna_length>
+            <pointing_direction>-1</pointing_direction>
+            <family>platform</family>
+            <name>platform_name</name>
+        </platform>
+        <orbit>
+            <orbit_quality>Science</orbit_quality>
+            <orbit_source>Header</orbit_source>
+            <orbit_reference_frame />
+            <min_time>2011-08-02 18:46:55</min_time>
+            <max_time>2011-08-02 18:48:45</max_time>
+            <family>orbit</family>
+            <name>orbit_name</name>
+        </orbit>
+    </reference>
+    <secondary>
+        <sensor>
+            <xml>/home/data/TSX/South/T41_s011_6345_Katla/20150815/TSX-1.SAR.L1B/TSX1_SAR__SSC______SM_S_SRA_20150815T184803_20150815T184811/TSX1_SAR__SSC______SM_S_SRA_20150815T184803_20150815T184811.xml</xml>
+            <output>secondary_slc/secondary.slc</output>
+            <family>terrasarx</family>
+            <name>secondary</name>
+        </sensor>
+        <width>15252</width>
+        <iBias>None</iBias>
+        <qBias>None</qBias>
+        <range_sampling_rate>109886120.3</range_sampling_rate>
+        <prf>3777.7131566281623</prf>
+        <pri>0.0002647104103829208</pri>
+        <pulse_length>1.0</pulse_length>
+        <chirp_slope>100000000.0</chirp_slope>
+        <wavelength>0.03106657823461874</wavelength>
+        <lookSide>-1</lookSide>
+        <frame>
+            <schheight>None</schheight>
+            <schvelocity>None</schvelocity>
+            <number_range_bins>15252</number_range_bins>
+            <squint_angle>-0.00015199575167414685</squint_angle>
+            <polarization>HH</polarization>
+            <number_of_samples>15252</number_of_samples>
+            <number_of_lines>30223</number_of_lines>
+            <starting_range>642540.9786120749</starting_range>
+            <far_range>663346.3112461364</far_range>
+            <sensing_start>2015-08-15 18:48:03.785543</sensing_start>
+            <sensing_mid>2015-08-15 18:48:07.785582</sensing_mid>
+            <sensing_stop>2015-08-15 18:48:11.785621</sensing_stop>
+            <track_number>None</track_number>
+            <frame_number>None</frame_number>
+            <orbit_number>45298</orbit_number>
+            <pass_direction>None</pass_direction>
+            <processing_facility>TS-X PGS NZ</processing_facility>
+            <processing_system>None</processing_system>
+            <processing_level>None</processing_level>
+            <processing_system_version>None</processing_system_version>
+            <aux_file>None</aux_file>
+            <doppler_vs_pixel>[-43.506214745031755, -0.0001147076787044438, -1.1881252456656226e-09]</doppler_vs_pixel>
+            <family>frame</family>
+            <name>frame_name</name>
+        </frame>
+        <instrument>
+            <prf>3777.7131566281623</prf>
+            <range_sampling_rate>109886120.3</range_sampling_rate>
+            <range_first_sample>None</range_first_sample>
+            <chirp_slope>100000000.0</chirp_slope>
+            <radar_wavelength>0.03106657823461874</radar_wavelength>
+            <radar_frequency>9649999293.0</radar_frequency>
+            <iq_flip>None</iq_flip>
+            <inphase_bias>None</inphase_bias>
+            <quadrature_bias>None</quadrature_bias>
+            <caltone_location>None</caltone_location>
+            <range_pulse_duration>None</range_pulse_duration>
+            <incidence_angle>39.41400985050216</incidence_angle>
+            <range_pixel_size>1.3641052081078888</range_pixel_size>
+            <azimuth_pixel_size>None</azimuth_pixel_size>
+            <pulse_lenght>1.0</pulse_lenght>
+            <family>radar</family>
+            <name>radar_name</name>
+        </instrument>
+        <platform>
+            <spacecraft_name>None</spacecraft_name>
+            <mission>TSX-1</mission>
+            <antenna_length>4.784</antenna_length>
+            <pointing_direction>-1</pointing_direction>
+            <family>platform</family>
+            <name>platform_name</name>
+        </platform>
+        <orbit>
+            <orbit_quality>Science</orbit_quality>
+            <orbit_source>Header</orbit_source>
+            <orbit_reference_frame />
+            <min_time>2015-08-15 18:47:23</min_time>
+            <max_time>2015-08-15 18:49:13</max_time>
+            <family>orbit</family>
+            <name>orbit_name</name>
+        </orbit>
+    </secondary>
+    <runTopo>
+        <inputs>
+            <NUMBER_ITERATIONS>25</NUMBER_ITERATIONS>
+            <DEM_WIDTH>50682</DEM_WIDTH>
+            <DEM_LENGTH>37222</DEM_LENGTH>
+            <FIRST_LATITUDE>66.6</FIRST_LATITUDE>
+            <FIRST_LONGITUDE>-24.6</FIRST_LONGITUDE>
+            <DELTA_LATITUDE>-9e-05</DELTA_LATITUDE>
+            <DELTA_LONGITUDE>0.00022</DELTA_LONGITUDE>
+            <ELLIPSOID_MAJOR_SEMIAXIS>6378137.0</ELLIPSOID_MAJOR_SEMIAXIS>
+            <ELLIPSOID_ECCENTRICITY_SQUARED>0.0066943799901</ELLIPSOID_ECCENTRICITY_SQUARED>
+            <LENGTH>5929</LENGTH>
+            <WIDTH>7389</WIDTH>
+            <SLANT_RANGE_PIXEL_SPACING>1.364105187418209</SLANT_RANGE_PIXEL_SPACING>
+            <RANGE_FIRST_SAMPLE>642715.5740281213</RANGE_FIRST_SAMPLE>
+            <NUMBER_RANGE_LOOKS>1</NUMBER_RANGE_LOOKS>
+            <NUMBER_AZIMUTH_LOOKS>1</NUMBER_AZIMUTH_LOOKS>
+            <PEG_HEADING>-0.31482548789079867</PEG_HEADING>
+            <PRF>3777.713213925559</PRF>
+            <RADAR_WAVELENGTH>0.031066577767171335</RADAR_WAVELENGTH>
+            <LAT_ACCESSOR>94857180289792</LAT_ACCESSOR>
+            <LON_ACCESSOR>94857180400032</LON_ACCESSOR>
+            <HEIGHT_R_ACCESSOR>94857173287568</HEIGHT_R_ACCESSOR>
+        </inputs>
+        <outputs>
+            <MINIMUM_LATITUDE>63.5838013051368</MINIMUM_LATITUDE>
+            <MINIMUM_LONGITUDE>-19.49845352332665</MINIMUM_LONGITUDE>
+            <MAXIMUM_LATITUDE>63.71080882281692</MAXIMUM_LATITUDE>
+            <MAXIMUM_LONGITUDE>-19.10850455015995</MAXIMUM_LONGITUDE>
+        </outputs>
+    </runTopo>
+</stripmapProc>

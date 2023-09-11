@@ -1,0 +1,14 @@
+{
+    "Common": {
+        "app_title" : "Pixel Tracking",
+        "km_unit" : "Kilometres",
+        "lmi_data" : "Includes data from the IS 50V dataset by Landmælingar Íslands from 12/2020"
+    },
+    "Area" : {
+        "time_series" : "Velocity time series"
+    },
+    "Plots" : {
+        "axes_date" : "date",
+        "axes_vel" : "velocity (m/yr)"
+    }
+}

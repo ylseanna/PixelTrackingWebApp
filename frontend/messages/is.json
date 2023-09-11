@@ -1,0 +1,14 @@
+{   
+    "Common": {
+        "app_title" : "Dílarakning",
+        "km_unit" : "Kílómetrar",
+        "lmi_data" : "Inniheldur gögn frá IS 50V gagnagrunni Landmælinga Íslands frá 12/2020"
+    },
+    "Area" : {
+        "time_series" : "Hraðatímaruna"
+    },
+    "Plots" : {
+        "axes_date" : "tímasetning",
+        "axes_vel" : "hraði (m/ár)"
+    }
+}

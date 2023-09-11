@@ -1,0 +1,154 @@
+{
+    "log_metadata": {
+        "program": "Pixel Tracking Pipeline",
+        "program_desc": "Generates pixel tracking offset in SAR data for various platforms",
+        "log_timestamp": 1691359116.212206,
+        "log_isotime": "2023-08-06T21:58:36.212206"
+    },
+    "frame_metadata": [
+        {
+            "reference": {
+                "id": 213,
+                "filename": "TDX1_SAR__SSC______SM_S_SRA_20200620T184839_20200620T184847.xml",
+                "begintime": "2020-06-20T18:48:39",
+                "endtime": "2020-06-20T18:48:47",
+                "track": 41.0,
+                "frame": 6345.0,
+                "sensor": "TSX1",
+                "orbit": "na",
+                "datalevel": "na",
+                "fileloc": "/home/data/TSX/South/T41_s011_6345_Katla/20200620/TSX-1.SAR.L1B/TDX1_SAR__SSC______SM_S_SRA_20200620T184839_20200620T184847/TDX1_SAR__SSC______SM_S_SRA_20200620T184839_20200620T184847.xml"
+            }
+        },
+        {
+            "secondary": {
+                "id": 224,
+                "filename": "TDX1_SAR__SSC______SM_S_SRA_20230603T184856_20230603T184904.xml",
+                "begintime": "2023-06-03T18:48:56",
+                "endtime": "2023-06-03T18:49:04",
+                "track": 41.0,
+                "frame": 6345.0,
+                "sensor": "TSX1",
+                "orbit": "na",
+                "datalevel": "na",
+                "fileloc": "/home/data/TSX/South/T41_s011_6345_Katla/20230603/TSX-1.SAR.L1B/TDX1_SAR__SSC______SM_S_SRA_20230603T184856_20230603T184904/TDX1_SAR__SSC______SM_S_SRA_20230603T184856_20230603T184904.xml"
+            }
+        }
+    ],
+    "args": {
+        "file1": "TDX1_SAR__SSC______SM_S_SRA_20200620T184839_20200620T184847.xml",
+        "file2": "TDX1_SAR__SSC______SM_S_SRA_20230603T184856_20230603T184904.xml",
+        "DEM_file": "/home/data/DEM/LMI/ArcticDEM/v1/Iceland_10m.dem",
+        "destination": "/home/yad2/PixelTrackingRuns/RUN20230806-TSXSECOND",
+        "init": true,
+        "isce": true,
+        "ignore_ampcor": true,
+        "denseOffsets": false,
+        "geogrid": false,
+        "autoRIFT": true,
+        "geocodeAutoRIFT": true,
+        "geocode": true,
+        "preview": true
+    },
+    "logs": [
+        {
+            "id": "start",
+            "level": "log",
+            "timestamp": 1691359116.212629,
+            "isotime": "2023-08-06T21:58:36.212629",
+            "descr": "Starting program"
+        },
+        {
+            "id": "init_start",
+            "level": "log",
+            "timestamp": 1691359116.21308,
+            "isotime": "2023-08-06T21:58:36.213080",
+            "descr": "Starting initialisation"
+        },
+        {
+            "id": "init_end",
+            "level": "log",
+            "timestamp": 1691359117.97674,
+            "isotime": "2023-08-06T21:58:37.976740",
+            "descr": "Initialisation finished"
+        },
+        {
+            "id": "isce_start",
+            "level": "log",
+            "timestamp": 1691359117.977517,
+            "isotime": "2023-08-06T21:58:37.977517",
+            "descr": "Starting ISCE"
+        },
+        {
+            "id": "isce_end",
+            "level": "log",
+            "timestamp": 1691359421.433896,
+            "isotime": "2023-08-06T22:03:41.433896",
+            "descr": "ISCE finished"
+        },
+        {
+            "id": "autoRIFT_start",
+            "level": "log",
+            "timestamp": 1691359421.435288,
+            "isotime": "2023-08-06T22:03:41.435288",
+            "descr": "Starting AutoRIFT"
+        },
+        {
+            "id": "autoRIFT_end",
+            "level": "log",
+            "timestamp": 1691359440.537917,
+            "isotime": "2023-08-06T22:04:00.537917",
+            "descr": "AutoRIFT finished"
+        },
+        {
+            "id": "geocode_start",
+            "level": "log",
+            "timestamp": 1691359440.539428,
+            "isotime": "2023-08-06T22:04:00.539428",
+            "descr": "Starting geocoding offsets"
+        },
+        {
+            "id": "geocode_end",
+            "level": "log",
+            "timestamp": 1691359445.345977,
+            "isotime": "2023-08-06T22:04:05.345977",
+            "descr": "Geocoding offsets finished"
+        },
+        {
+            "id": "geocode_autoRIFT_start",
+            "level": "log",
+            "timestamp": 1691359445.348144,
+            "isotime": "2023-08-06T22:04:05.348144",
+            "descr": "Starting geocoding autoRIFT"
+        },
+        {
+            "id": "geocode_autoRIFT_end",
+            "level": "log",
+            "timestamp": 1691359448.868753,
+            "isotime": "2023-08-06T22:04:08.868753",
+            "descr": "Geocoding autoRIFT finished"
+        },
+        {
+            "id": "previews_start",
+            "level": "log",
+            "timestamp": 1691359448.869472,
+            "isotime": "2023-08-06T22:04:08.869472",
+            "descr": "Starting generating previews"
+        },
+        {
+            "id": "previews_end",
+            "level": "log",
+            "timestamp": 1691359468.355107,
+            "isotime": "2023-08-06T22:04:28.355107",
+            "descr": "Generating previews finished"
+        },
+        {
+            "id": "copy_start",
+            "level": "log",
+            "timestamp": 1691359468.359315,
+            "isotime": "2023-08-06T22:04:28.359315",
+            "descr": "Copying results to destination folder"
+        }
+    ],
+    "errors": []
+}

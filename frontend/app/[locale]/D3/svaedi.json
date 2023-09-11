@@ -1,0 +1,31 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [[[-19.169769,66.197117],[-18.962402,66.197117],[-18.962402,66.074331],[-19.169769,66.074331],[-19.169769,66.197117]]]
+            },
+            "properties": {
+                "subType": "Rectangle",
+                "id" : "almpt",
+                "name" : "Almenningar"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [[[-19.414215,63.676115],[-19.2590334,63.676115],[-19.259033,63.635284],[-19.414215,63.635284],[-19.414215,63.676115]]]
+            },
+            "properties": {
+                "subType": "Rectangle",
+                "id" : "tungpt",
+                "name" : "Tungnakvíslarjökull"
+            }
+        }
+    ]
+  }
+
+

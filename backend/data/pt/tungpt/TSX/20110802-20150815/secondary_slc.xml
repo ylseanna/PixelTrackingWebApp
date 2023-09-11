@@ -1,0 +1,611 @@
+<productmanager_name>
+    <property name="family">
+        <value>productmanager</value>
+        <doc>Instance family name</doc>
+    </property>
+    <component name="instance">
+        <factorymodule>isceobj.Scene.Frame</factorymodule>
+        <factoryname>Frame</factoryname>
+        <component name="attitude">
+            <factorymodule>isceobj.Attitude.Attitude</factorymodule>
+            <factoryname>createAttitude</factoryname>
+            <doc>Attitude Information</doc>
+            <property name="family">
+                <value>attitude</value>
+                <doc>Instance family name</doc>
+            </property>
+            <property name="name">
+                <value>attitude_name</value>
+                <doc>Instance name</doc>
+            </property>
+        </component>
+        <property name="doppler_vs_pixel">
+            <value>[-43.506214745031755, -0.0001147076787044438, -1.1881252456656226e-09]</value>
+            <doc>Doppler polynomial coefficients vs pixel number</doc>
+        </property>
+        <property name="family">
+            <value>frame</value>
+            <doc>Instance family name</doc>
+        </property>
+        <property name="far_range">
+            <value>663346.3112461364</value>
+            <doc>Far range</doc>
+        </property>
+        <component name="image">
+            <factorymodule>isceobj.Image</factorymodule>
+            <factoryname>createRawImage</factoryname>
+            <doc>Image Information</doc>
+            <property name="access_mode">
+                <value>read</value>
+                <doc>Image access mode.</doc>
+            </property>
+            <property name="byte_order">
+                <value>l</value>
+                <doc>Endianness of the image.</doc>
+            </property>
+            <component name="coordinate1">
+                <factorymodule>isceobj.Image</factorymodule>
+                <factoryname>createCoordinate</factoryname>
+                <doc>First coordinate of a 2D image (width).</doc>
+                <property name="delta">
+                    <value>1</value>
+                    <doc>Coordinate quantization.</doc>
+                </property>
+                <property name="endingvalue">
+                    <value>15252</value>
+                    <doc>Ending value of the coordinate.</doc>
+                </property>
+                <property name="family">
+                    <value>imagecoordinate</value>
+                    <doc>Instance family name</doc>
+                </property>
+                <property name="name">
+                    <value>imagecoordinate_name</value>
+                    <doc>Instance name</doc>
+                </property>
+                <property name="size">
+                    <value>15252</value>
+                    <doc>Coordinate size.</doc>
+                </property>
+                <property name="startingvalue">
+                    <value>0</value>
+                    <doc>Starting value of the coordinate.</doc>
+                </property>
+            </component>
+            <component name="coordinate2">
+                <factorymodule>isceobj.Image</factorymodule>
+                <factoryname>createCoordinate</factoryname>
+                <doc>Second coordinate of a 2D image (length).</doc>
+                <property name="delta">
+                    <value>1</value>
+                    <doc>Coordinate quantization.</doc>
+                </property>
+                <property name="endingvalue">
+                    <value>30223</value>
+                    <doc>Ending value of the coordinate.</doc>
+                </property>
+                <property name="family">
+                    <value>imagecoordinate</value>
+                    <doc>Instance family name</doc>
+                </property>
+                <property name="name">
+                    <value>imagecoordinate_name</value>
+                    <doc>Instance name</doc>
+                </property>
+                <property name="size">
+                    <value>30223</value>
+                    <doc>Coordinate size.</doc>
+                </property>
+                <property name="startingvalue">
+                    <value>0</value>
+                    <doc>Starting value of the coordinate.</doc>
+                </property>
+            </component>
+            <property name="data_type">
+                <value>cfloat</value>
+                <doc>Image data type.</doc>
+            </property>
+            <property name="description">
+                <value>['Single look complex image.']</value>
+                <doc>Image description</doc>
+            </property>
+            <property name="extra_file_name">
+                <value>secondary_slc/secondary.slc.vrt</value>
+                <doc>For example name of vrt metadata.</doc>
+            </property>
+            <property name="family">
+                <value>slcimage</value>
+                <doc>Instance family name</doc>
+            </property>
+            <property name="file_name">
+                <value>secondary_slc/secondary.slc</value>
+                <doc>Name of the image file.</doc>
+            </property>
+            <property name="image_type">
+                <value>slc</value>
+                <doc>Image type used for displaying.</doc>
+            </property>
+            <property name="length">
+                <value>30223</value>
+                <doc>Image length</doc>
+            </property>
+            <property name="name">
+                <value>slcimage_name</value>
+                <doc>Instance name</doc>
+            </property>
+            <property name="number_bands">
+                <value>1</value>
+                <doc>Number of image bands.</doc>
+            </property>
+            <property name="scheme">
+                <value>BIP</value>
+                <doc>Interleaving scheme of the image.</doc>
+            </property>
+            <property name="width">
+                <value>15252</value>
+                <doc>Image width</doc>
+            </property>
+            <property name="xmax">
+                <value>15252</value>
+                <doc>Maximum range value</doc>
+            </property>
+            <property name="xmin">
+                <value>0</value>
+                <doc>Minimum range value</doc>
+            </property>
+        </component>
+        <component name="instrument">
+            <factorymodule>isceobj.Radar.Radar</factorymodule>
+            <factoryname>createRadar</factoryname>
+            <doc>Radar information</doc>
+            <property name="chirp_slope">
+                <value>100000000.0</value>
+                <doc>Chirp slope of range pulse in Hz / sec</doc>
+            </property>
+            <property name="family">
+                <value>radar</value>
+                <doc>Instance family name</doc>
+            </property>
+            <property name="incidence_angle">
+                <value>39.41400985050216</value>
+                <doc>Incidence angle</doc>
+            </property>
+            <property name="name">
+                <value>radar_name</value>
+                <doc>Instance name</doc>
+            </property>
+            <component name="platform">
+                <factorymodule>isceobj.Platform.Platform</factorymodule>
+                <factoryname>createPlatform</factoryname>
+                <doc>Platform information</doc>
+                <property name="antenna_length">
+                    <value>4.784</value>
+                    <doc>Length of the antenna</doc>
+                </property>
+                <property name="family">
+                    <value>platform</value>
+                    <doc>Instance family name</doc>
+                </property>
+                <property name="mission">
+                    <value>TSX-1</value>
+                    <doc>Mission name</doc>
+                </property>
+                <property name="name">
+                    <value>platform_name</value>
+                    <doc>Instance name</doc>
+                </property>
+                <component name="planet">
+                    <factorymodule>isceobj.Planet</factorymodule>
+                    <factoryname>createPlanet</factoryname>
+                    <args>('Earth',)</args>
+                    <doc>Planet factory</doc>
+                    <property name="family">
+                        <value>planet</value>
+                        <doc>Instance family name</doc>
+                    </property>
+                    <property name="name">
+                        <value>planet_name</value>
+                        <doc>Instance name</doc>
+                    </property>
+                    <property name="pname">
+                        <value>Earth</value>
+                        <doc>Planet name</doc>
+                    </property>
+                </component>
+                <property name="pointing_direction">
+                    <value>-1</value>
+                    <doc>-1 for RIGHT, 1 for LEFT</doc>
+                </property>
+            </component>
+            <property name="prf">
+                <value>3777.7131566281623</value>
+                <doc>Pulse Repetition Frequency</doc>
+            </property>
+            <property name="pulse_lenght">
+                <value>1.0</value>
+                <doc>Pulse length</doc>
+            </property>
+            <property name="radar_frequency">
+                <value>9649999293.0</value>
+                <doc>Radar frequency in Hz</doc>
+            </property>
+            <property name="radar_wavelength">
+                <value>0.03106657823461874</value>
+                <doc>Radar wavelength</doc>
+            </property>
+            <property name="range_pixel_size">
+                <value>1.3641052081078888</value>
+                <doc>Range pixel size</doc>
+            </property>
+            <property name="range_sampling_rate">
+                <value>109886120.3</value>
+                <doc>Range sampling rate</doc>
+            </property>
+        </component>
+        <property name="name">
+            <value>frame_name</value>
+            <doc>Instance name</doc>
+        </property>
+        <property name="number_of_lines">
+            <value>30223</value>
+            <doc>Number of lines in the image</doc>
+        </property>
+        <property name="number_of_samples">
+            <value>15252</value>
+            <doc>Number of samples in a range line.</doc>
+        </property>
+        <property name="number_range_bins">
+            <value>15252</value>
+            <doc>Number of range bins</doc>
+        </property>
+        <component name="orbit">
+            <factorymodule>isceobj.Orbit.Orbit</factorymodule>
+            <factoryname>createOrbit</factoryname>
+            <doc>Orbit information</doc>
+            <property name="family">
+                <value>orbit</value>
+                <doc>Instance family name</doc>
+            </property>
+            <property name="max_time">
+                <value>2015-08-15 18:49:13</value>
+            </property>
+            <property name="min_time">
+                <value>2015-08-15 18:47:23</value>
+            </property>
+            <property name="name">
+                <value>orbit_name</value>
+                <doc>Instance name</doc>
+            </property>
+            <property name="orbit_quality">
+                <value>Science</value>
+                <doc>Orbit quality</doc>
+            </property>
+            <property name="orbit_source">
+                <value>Header</value>
+                <doc>Orbit source</doc>
+            </property>
+            <component name="state_vectors">
+                <factorymodule>iscesys.Component</factorymodule>
+                <factoryname>createTraitSeq</factoryname>
+                <args>('statevector',)</args>
+                <doc>Testing Trait Sequence</doc>
+                <property name="_factorname">
+                    <value>default</value>
+                    <doc>Factory Name used in the Trait Sequence</doc>
+                </property>
+                <property name="_factory">
+                    <value>True</value>
+                    <doc>Flag - Factory/Parameter</doc>
+                </property>
+                <property name="_mandatory">
+                    <value>False</value>
+                    <doc>Mandatory Field of the module used in Trait Sequence</doc>
+                </property>
+                <property name="_modulename">
+                    <value>StateVector</value>
+                    <doc>Module name used in Trait Sequence</doc>
+                </property>
+                <property name="_private">
+                    <value>True</value>
+                    <doc>Private Field of the module used in Trait Sequence</doc>
+                </property>
+                <property name="family">
+                    <value>TraitSeq</value>
+                    <doc>Instance family name</doc>
+                </property>
+                <property name="name">
+                    <value>['statevector1', 'statevector2', 'statevector3', 'statevector4', 'statevector5', 'statevector6', 'statevector7', 'statevector8', 'statevector9', 'statevector10', 'statevector11', 'statevector12']</value>
+                    <doc>Holds the sequence of names</doc>
+                </property>
+                <component name="statevector1">
+                    <factorymodule>isceobj.Orbit.Orbit</factorymodule>
+                    <factoryname>StateVector</factoryname>
+                    <property name="family">
+                        <value>_family</value>
+                        <doc>Instance family name</doc>
+                    </property>
+                    <property name="name">
+                        <value>_family_name</value>
+                        <doc>Instance name</doc>
+                    </property>
+                    <property name="position">
+                        <value>[3138222.04096364, -1443094.580954743, 5949775.865368789]</value>
+                    </property>
+                    <property name="time">
+                        <value>2015-08-15 18:47:23</value>
+                    </property>
+                    <property name="velocity">
+                        <value>[-6707.374, 643.8, 3685.016]</value>
+                    </property>
+                </component>
+                <component name="statevector10">
+                    <factorymodule>isceobj.Orbit.Orbit</factorymodule>
+                    <factoryname>StateVector</factoryname>
+                    <property name="family">
+                        <value>_family</value>
+                        <doc>Instance family name</doc>
+                    </property>
+                    <property name="name">
+                        <value>_family_name</value>
+                        <doc>Instance name</doc>
+                    </property>
+                    <property name="position">
+                        <value>[2520557.88485906, -1374136.6002017094, 6251439.472705824]</value>
+                    </property>
+                    <property name="time">
+                        <value>2015-08-15 18:48:53</value>
+                    </property>
+                    <property name="velocity">
+                        <value>[-7006.699, 887.992, 3013.116]</value>
+                    </property>
+                </component>
+                <component name="statevector11">
+                    <factorymodule>isceobj.Orbit.Orbit</factorymodule>
+                    <factoryname>StateVector</factoryname>
+                    <property name="family">
+                        <value>_family</value>
+                        <doc>Instance family name</doc>
+                    </property>
+                    <property name="name">
+                        <value>_family_name</value>
+                        <doc>Instance name</doc>
+                    </property>
+                    <property name="position">
+                        <value>[2450345.8838201277, -1365122.2945815648, 6281187.881887569]</value>
+                    </property>
+                    <property name="time">
+                        <value>2015-08-15 18:49:03</value>
+                    </property>
+                    <property name="velocity">
+                        <value>[-7035.553, 914.858, 2936.506]</value>
+                    </property>
+                </component>
+                <component name="statevector12">
+                    <factorymodule>isceobj.Orbit.Orbit</factorymodule>
+                    <factoryname>StateVector</factoryname>
+                    <property name="family">
+                        <value>_family</value>
+                        <doc>Instance family name</doc>
+                    </property>
+                    <property name="name">
+                        <value>_family_name</value>
+                        <doc>Instance name</doc>
+                    </property>
+                    <property name="position">
+                        <value>[2379849.8093734626, -1355839.6769514955, 6310168.400063933]</value>
+                    </property>
+                    <property name="time">
+                        <value>2015-08-15 18:49:13</value>
+                    </property>
+                    <property name="velocity">
+                        <value>[-7063.513, 941.654, 2859.539]</value>
+                    </property>
+                </component>
+                <component name="statevector2">
+                    <factorymodule>isceobj.Orbit.Orbit</factorymodule>
+                    <factoryname>StateVector</factoryname>
+                    <property name="family">
+                        <value>_family</value>
+                        <doc>Instance family name</doc>
+                    </property>
+                    <property name="name">
+                        <value>_family_name</value>
+                        <doc>Instance name</doc>
+                    </property>
+                    <property name="position">
+                        <value>[3070963.917383085, -1436520.1010860044, 5986261.477906418]</value>
+                    </property>
+                    <property name="time">
+                        <value>2015-08-15 18:47:33</value>
+                    </property>
+                    <property name="velocity">
+                        <value>[-6744.109, 671.091, 3612.034]</value>
+                    </property>
+                </component>
+                <component name="statevector3">
+                    <factorymodule>isceobj.Orbit.Orbit</factorymodule>
+                    <factoryname>StateVector</factoryname>
+                    <property name="family">
+                        <value>_family</value>
+                        <doc>Instance family name</doc>
+                    </property>
+                    <property name="name">
+                        <value>_family_name</value>
+                        <doc>Instance name</doc>
+                    </property>
+                    <property name="position">
+                        <value>[3003342.732893058, -1429672.8512269484, 6022015.065513747]</value>
+                    </property>
+                    <property name="time">
+                        <value>2015-08-15 18:47:43</value>
+                    </property>
+                    <property name="velocity">
+                        <value>[-6779.985, 698.353, 3538.612]</value>
+                    </property>
+                </component>
+                <component name="statevector4">
+                    <factorymodule>isceobj.Orbit.Orbit</factorymodule>
+                    <factoryname>StateVector</factoryname>
+                    <property name="family">
+                        <value>_family</value>
+                        <doc>Instance family name</doc>
+                    </property>
+                    <property name="name">
+                        <value>_family_name</value>
+                        <doc>Instance name</doc>
+                    </property>
+                    <property name="position">
+                        <value>[2935367.105426581, -1422553.145420495, 6057032.27818977]</value>
+                    </property>
+                    <property name="time">
+                        <value>2015-08-15 18:47:53</value>
+                    </property>
+                    <property name="velocity">
+                        <value>[-6814.997, 725.582, 3464.76]</value>
+                    </property>
+                </component>
+                <component name="statevector5">
+                    <factorymodule>isceobj.Orbit.Orbit</factorymodule>
+                    <factoryname>StateVector</factoryname>
+                    <property name="family">
+                        <value>_family</value>
+                        <doc>Instance family name</doc>
+                    </property>
+                    <property name="name">
+                        <value>_family_name</value>
+                        <doc>Instance name</doc>
+                    </property>
+                    <property name="position">
+                        <value>[2867045.6980706532, -1415161.3426268392, 6091308.854917396]</value>
+                    </property>
+                    <property name="time">
+                        <value>2015-08-15 18:48:03</value>
+                    </property>
+                    <property name="velocity">
+                        <value>[-6849.141, 752.772, 3390.487]</value>
+                    </property>
+                </component>
+                <component name="statevector6">
+                    <factorymodule>isceobj.Orbit.Orbit</factorymodule>
+                    <factoryname>StateVector</factoryname>
+                    <property name="family">
+                        <value>_family</value>
+                        <doc>Instance family name</doc>
+                    </property>
+                    <property name="name">
+                        <value>_family_name</value>
+                        <doc>Instance name</doc>
+                    </property>
+                    <property name="position">
+                        <value>[2798387.211768614, -1407497.8448371794, 6124840.6267541265]</value>
+                    </property>
+                    <property name="time">
+                        <value>2015-08-15 18:48:13</value>
+                    </property>
+                    <property name="velocity">
+                        <value>[-6882.412, 779.92, 3315.801]</value>
+                    </property>
+                </component>
+                <component name="statevector7">
+                    <factorymodule>isceobj.Orbit.Orbit</factorymodule>
+                    <factoryname>StateVector</factoryname>
+                    <property name="family">
+                        <value>_family</value>
+                        <doc>Instance family name</doc>
+                    </property>
+                    <property name="name">
+                        <value>_family_name</value>
+                        <doc>Instance name</doc>
+                    </property>
+                    <property name="position">
+                        <value>[2729400.388504092, -1399563.1041083862, 6157623.514635579]</value>
+                    </property>
+                    <property name="time">
+                        <value>2015-08-15 18:48:23</value>
+                    </property>
+                    <property name="velocity">
+                        <value>[-6914.808, 807.02, 3240.712]</value>
+                    </property>
+                </component>
+                <component name="statevector8">
+                    <factorymodule>isceobj.Orbit.Orbit</factorymodule>
+                    <factoryname>StateVector</factoryname>
+                    <property name="family">
+                        <value>_family</value>
+                        <doc>Instance family name</doc>
+                    </property>
+                    <property name="name">
+                        <value>_family_name</value>
+                        <doc>Instance name</doc>
+                    </property>
+                    <property name="position">
+                        <value>[2660094.008192542, -1391357.614479281, 6189653.533569111]</value>
+                    </property>
+                    <property name="time">
+                        <value>2015-08-15 18:48:33</value>
+                    </property>
+                    <property name="velocity">
+                        <value>[-6946.323, 834.069, 3165.228]</value>
+                    </property>
+                </component>
+                <component name="statevector9">
+                    <factorymodule>isceobj.Orbit.Orbit</factorymodule>
+                    <factoryname>StateVector</factoryname>
+                    <property name="family">
+                        <value>_family</value>
+                        <doc>Instance family name</doc>
+                    </property>
+                    <property name="name">
+                        <value>_family_name</value>
+                        <doc>Instance name</doc>
+                    </property>
+                    <property name="position">
+                        <value>[2590476.8889345024, -1382881.9178551624, 6220926.78660611]</value>
+                    </property>
+                    <property name="time">
+                        <value>2015-08-15 18:48:43</value>
+                    </property>
+                    <property name="velocity">
+                        <value>[-6976.955, 861.061, 3089.36]</value>
+                    </property>
+                </component>
+            </component>
+        </component>
+        <property name="orbit_number">
+            <value>45298</value>
+            <doc>Orbit number for the acquisition</doc>
+        </property>
+        <property name="polarization">
+            <value>HH</value>
+            <doc>Polarization.</doc>
+        </property>
+        <property name="processing_facility">
+            <value>TS-X PGS NZ</value>
+            <doc>Processing facility information</doc>
+        </property>
+        <property name="sensing_mid">
+            <value>2015-08-15T18:48:07.785582</value>
+            <doc>Date time object for UTC of middle of image</doc>
+        </property>
+        <property name="sensing_start">
+            <value>2015-08-15T18:48:03.785543</value>
+            <doc>Date time object for UTC of first line</doc>
+        </property>
+        <property name="sensing_stop">
+            <value>2015-08-15T18:48:11.785621</value>
+            <doc>Date time object for UTC of last line of image</doc>
+        </property>
+        <property name="squint_angle">
+            <value>-0.00015199575167414685</value>
+            <doc>squint angle</doc>
+        </property>
+        <property name="starting_range">
+            <value>642540.9786120749</value>
+            <doc>Range to the first valid sample in the image</doc>
+        </property>
+    </component>
+    <property name="name">
+        <value>productmanager_name</value>
+        <doc>Instance name</doc>
+    </property>
+</productmanager_name>
