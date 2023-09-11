@@ -20,8 +20,6 @@ sudo docker compose up --build
 
 The app will be accessible at <http://localhost:8080/pixeltracking>
 
-This may change in the future as the nginx component may be removed in favor of using Apache as a reverse proxy directly.
-
 ## Cleaning up
 
 To clean up after running the app in either mode and remove containers and volumes, use the following command:
