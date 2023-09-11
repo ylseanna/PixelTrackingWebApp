@@ -5,6 +5,12 @@ WORKDIR /app
 COPY ./requirements.txt .
 RUN pip install -r requirements.txt
 
+# Run as non-root user
+RUN addgroup --system --gid 1001 python
+RUN adduser --system --uid 1001 --gid 1001 python
+
+USER python
+
 EXPOSE 5000
 
 
