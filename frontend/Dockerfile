@@ -37,6 +37,13 @@ ENV NEXT_TELEMETRY_DISABLED 1
 # RUN yarn build
 
 # If using npm comment out above and use below instead
+
+# Set environment variables for build
+ARG NODE_ENV
+ENV NODE_ENV $NODE_ENV
+ARG APP_BASE_PATH
+ENV APP_BASE_PATH $APP_BASE_PATH
+
 RUN npm run build
 
 # Production image, copy all the files and run next

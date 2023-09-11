@@ -5,10 +5,10 @@ services:
     build:
       context: ./frontend
       target: runner
+      args:
+        - NODE_ENV=production
+        - APP_BASE_PATH=${APP_BASE_PATH}
     restart: always
-    environment:
-      - NODE_ENV=production
-      - APP_BASE_PATH=${APP_BASE_PATH}
   backend:
     container_name: backend
     build:
