@@ -1,5 +1,5 @@
-flask==2.3.2
+flask==2.3.3
 gunicorn==21.2.0
-numpy
-pandas
-geojson
+numpy==1.25.2
+pandas==2.1.0
+geojson==3.0.1
