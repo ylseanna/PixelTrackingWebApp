@@ -30,11 +30,9 @@ def pt():
 
     import json
 
-    f = open(f'data/extents/{area}.json')
-
-    extent = json.load(f)
-
-    f.close()
+    extent = None
+    with open(f'data/extents/{area}.json') as f:
+        extent = json.load(f)
     
     # Modify data
     
