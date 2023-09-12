@@ -173,7 +173,7 @@ function DisplacementMap(props: ComponentProps<any>) {
         marginRight: margin.right, 
       }
       } src={
-        "/pixeltracking/media/projected_20100621-20110802.png"
+        `${process.env.NEXT_PUBLIC_APP_BASE_PATH}/media/projected_20100621-20110802.png`
       } width={props.width} height={props.height} alt=""></Image>
     <div id={props.id} style={{position:"absolute", height: 'auto', width: 'calc(100% - 4rem)'}}></div>
   </>;
