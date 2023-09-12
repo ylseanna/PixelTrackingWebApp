@@ -39,10 +39,8 @@ ENV NEXT_TELEMETRY_DISABLED 1
 # If using npm comment out above and use below instead
 
 # Set environment variables for build
-ARG NODE_ENV
-ENV NODE_ENV $NODE_ENV
-ARG APP_BASE_PATH
-ENV APP_BASE_PATH $APP_BASE_PATH
+ARG NEXT_PUBLIC_APP_BASE_PATH
+ENV NEXT_PUBLIC_APP_BASE_PATH $NEXT_PUBLIC_APP_BASE_PATH
 
 RUN npm run build
 

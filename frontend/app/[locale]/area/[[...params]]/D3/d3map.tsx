@@ -116,7 +116,7 @@ function DisplacementMap(props: ComponentProps<any>) {
     .call(scaleBar);
 
     async function plotVectors() {
-      const response = await fetch('/pixeltracking/api/pt?timespan=20100621-20110802');
+      const response = await fetch(`${process.env.NEXT_PUBLIC_APP_BASE_PATH}/api/pt?timespan=20100621-20110802`);
 
       const json = await response.json()
 

@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 
-const basePath = process.env.APP_BASE_PATH;
+const basePath = process.env.NEXT_PUBLIC_APP_BASE_PATH;
 const defaultLocale = 'en';
 
 module.exports = {

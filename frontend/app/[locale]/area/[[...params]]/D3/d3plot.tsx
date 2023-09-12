@@ -31,7 +31,7 @@ function VelPlot(props: ComponentProps<any>) {
       
 
       async function Plot() {
-        const response = await fetch(`/pixeltracking/api/testdata`);
+        const response = await fetch(`${process.env.NEXT_PUBLIC_APP_BASE_PATH}/api/testdata`);
         
         const json = await response.json()
 

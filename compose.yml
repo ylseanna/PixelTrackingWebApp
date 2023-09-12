@@ -6,8 +6,10 @@ services:
       context: ./frontend
       target: runner
       args:
-        - NODE_ENV=production
-        - APP_BASE_PATH=${APP_BASE_PATH}
+        - NEXT_PUBLIC_APP_BASE_PATH=${APP_BASE_PATH}
+    environment:
+      - NODE_ENV=production
+      - NEXT_PUBLIC_APP_BASE_PATH=${APP_BASE_PATH}
     restart: always
   backend:
     container_name: backend
