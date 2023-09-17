@@ -2,10 +2,24 @@ from flask import Flask, request
 from flask import jsonify
 
 import sys
+import os
 
 import pandas as pd
 
 app = Flask(__name__)
+
+# Constants
+PT_ROOT = "data/pt"  # PT data directory root
+PT_DIRLIST = None    # Recursive directory listing of the PT directory
+
+def init():
+    """Initializes variables needed for handling requests"""
+    global PT_DIRLIST
+
+    # Create a recursive directory listing of the PT directory
+    PT_DIRLIST = {root: dirs for root, dirs, files in os.walk(PT_ROOT)}
+
+init()
 
 @app.route('/api')
 def hello():
@@ -26,7 +40,11 @@ def pt():
     platform = request.args.get('platform', default='TSX')
     timespan = request.args.get('timespan')
 
-    df = pd.read_csv(f'data/pt/{area}/{platform}/{timespan}/geocoded_offsets/AutoRIFT.data', skipinitialspace=True).rename(columns={"# Dx" : "Dx"})
+    if f"{PT_ROOT}/{area}/{platform}/{timespan}" not in PT_DIRLIST or not os.path.isfile(f"data/extents/{area}.json"):
+        # TODO: Return proper error
+        return "Error"
+
+    df = pd.read_csv(f'{PT_ROOT}/{area}/{platform}/{timespan}/geocoded_offsets/AutoRIFT.data', skipinitialspace=True).rename(columns={"# Dx" : "Dx"})
 
     import json
 
