@@ -1,6 +1,7 @@
 from functools import lru_cache
 
 from flask import Flask, request
+from flask_caching import Cache
 
 from geojson import Feature, Point, FeatureCollection, dumps
 
@@ -10,7 +11,15 @@ import json
 import pandas as pd
 import numpy as np
 
+config = {
+    "CACHE_DEFAULT_TIMEOUT": 0,
+    "CACHE_TYPE": "FileSystemCache",
+    "CACHE_DIR": "cache"
+}
+
 app = Flask(__name__)
+app.config.from_mapping(config)
+cache = Cache(app)
 
 # Constants
 PT_ROOT = "data/pt"  # PT data directory root
@@ -46,16 +55,17 @@ def pt():
     platform = request.args.get('platform', default='TSX')
     timespan = request.args.get('timespan')
 
-    # Use separate cached function for generating data
-    return render_pt(area, platform, timespan)
-
-
-@lru_cache
-def render_pt(area, platform, timespan):
+    # Validate arguments
     if f"{PT_ROOT}/{area}/{platform}/{timespan}" not in PT_DIRLIST or not os.path.isfile(f"data/extents/{area}.json"):
         # TODO: Return proper error
         return "Error"
 
+    # Use separate cached function for generating data
+    return render_pt(area, platform, timespan)
+
+
+@cache.memoize
+def render_pt(area, platform, timespan):
     df = pd.read_csv(f'{PT_ROOT}/{area}/{platform}/{timespan}/geocoded_offsets/AutoRIFT.data', skipinitialspace=True).rename(columns={"# Dx": "Dx"})
 
     extent = None

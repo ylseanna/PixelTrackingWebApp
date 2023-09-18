@@ -15,4 +15,5 @@ services:
       target: dev
     volumes:
       - ./backend:/app
+      - /app/cache
     command: gunicorn --access-logfile '-' --error-logfile '-' --log-level DEBUG --bind 0.0.0.0:5000 --reload wsgi:app
