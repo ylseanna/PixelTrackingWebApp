@@ -1,5 +1,3 @@
-from functools import lru_cache
-
 from flask import Flask, request
 from flask_caching import Cache
 
