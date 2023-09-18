@@ -64,7 +64,7 @@ def pt():
     return render_pt(area, platform, timespan)
 
 
-@cache.memoize
+@cache.memoize()
 def render_pt(area, platform, timespan):
     df = pd.read_csv(f'{PT_ROOT}/{area}/{platform}/{timespan}/geocoded_offsets/AutoRIFT.data', skipinitialspace=True).rename(columns={"# Dx": "Dx"})
 
