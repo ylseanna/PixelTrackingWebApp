@@ -41,7 +41,7 @@ init()
 
 class ArgumentError(Exception):
     """Error used when the user inputs invalid argument values"""
-    status_code = 404
+    status_code = 400
 
     def __init__(self, message, status_code=None):
         super(ArgumentError, self).__init__(message)
