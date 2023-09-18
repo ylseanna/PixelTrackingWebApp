@@ -3,7 +3,7 @@ FROM docker.io/library/python:3.11-slim AS base
 FROM base AS dev
 WORKDIR /app
 COPY ./requirements.txt .
-RUN pip install -r requirements.txt
+RUN pip install -r requirements.txt --root-user-action=ignore
 
 # Run as non-root user
 RUN addgroup --system --gid 1001 python
