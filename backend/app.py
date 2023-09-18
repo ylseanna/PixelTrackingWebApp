@@ -11,6 +11,7 @@ import json
 import pandas as pd
 import numpy as np
 
+# Flask-Caching config
 config = {
     "CACHE_DEFAULT_TIMEOUT": 0,
     "CACHE_TYPE": "FileSystemCache",
@@ -19,6 +20,9 @@ config = {
 
 app = Flask(__name__)
 app.config.from_mapping(config)
+if os.environ.get("ENV") == "development":
+    # Disable cache if running in development mode
+    app.config["CACHE_TYPE"] = "NullCache"
 cache = Cache(app)
 
 # Constants
