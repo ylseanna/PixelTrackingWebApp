@@ -10,8 +10,7 @@ RUN addgroup --system --gid 1001 python
 RUN adduser --system --uid 1001 --gid 1001 python
 
 # Create Flask cache directory and give ownership to python user
-RUN mkdir /app/cache
-RUN chown python:python /app/cache
+RUN mkdir /app/cache && chown python:python /app/cache
 
 USER python
 
