@@ -5,7 +5,7 @@
 To run the development server, use the following command:
 
 ```sh
-sudo docker compose -f compose.yml -f compose.dev.yml up --build -V
+docker compose -f compose.yml -f compose.dev.yml up --build -V
 ```
 
 The app will be accessible at <http://localhost:8080/pixeltracking>
@@ -15,7 +15,7 @@ The app will be accessible at <http://localhost:8080/pixeltracking>
 To run the app in production mode, use the following command:
 
 ```sh
-sudo docker compose up --build
+docker compose up --build
 ```
 
 The app will be accessible at <http://localhost:8080/pixeltracking>
@@ -36,10 +36,10 @@ If the app code is changed after the first launch, the images need to be rebuilt
 docker compose build
 ```
 
-## Cleaning up
+## Stopping
 
-To clean up after running the app in either mode and remove containers and volumes, use the following command:
+To stop the services after running the app in either mode and remove containers and volumes, use the following command:
 
 ```sh
-sudo docker compose down -v
+docker compose down -v
 ```
