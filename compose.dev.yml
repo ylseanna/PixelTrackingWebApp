@@ -7,13 +7,13 @@ services:
     environment:
       - NODE_ENV=development
     volumes:
-      - ./frontend:/app:ro,Z
+      - ./frontend:/app:Z
       - /app/node_modules
       - /app/.next
   backend:
     build:
       target: dev
     volumes:
-      - ./backend:/app:ro,Z
+      - ./backend:/app:Z
       - /app/cache
     command: gunicorn --access-logfile '-' --error-logfile '-' --log-level DEBUG --bind 0.0.0.0:5000 --reload wsgi:app -e ENV=development
