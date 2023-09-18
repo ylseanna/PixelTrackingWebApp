@@ -16,9 +16,3 @@ services:
     volumes:
       - ./backend:/app
     command: gunicorn --access-logfile '-' --error-logfile '-' --log-level DEBUG --bind 0.0.0.0:5000 --reload wsgi:app
-  # nginx:
-  #   container_name: nginx
-  #   build:
-  #     context: ./nginx
-  #   ports:
-  #     - 8080:8080
