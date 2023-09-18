@@ -75,19 +75,26 @@ def render_pt(area, platform, timespan):
     # Modify data
 
     df['Dx'] = df['Dx'] - np.median(df['Dx'].values)
+    df['Dy'] = df['Dy'] - np.median(df['Dy'].values)
 
     df['Dtot'] = np.sqrt(df['Dy']**2 + df['Dx']**2)
     # rad = np.pi/2 - np.arctan2(dy[i], -dx[i])
     # angle = np.degrees(rad) + head[i]
 
-    print('helloooo', flush=True)
+    print(df)
 
     features = []
     for index, row in df.iterrows():
         if row['Lat'] < extent['maxlat'] and row['Lat'] > extent['minlat'] and row['Lon'] < extent['maxlon'] and row['Lon'] > extent['minlon']:
             point = Point((row['Lon'], row['Lat']))
+            
+            rad = np.pi/2 - np.arctan2(row['Dy'], -row['Dx'])
+            angle = np.degrees(rad) + row['heading']
+                        
+            dx = np.abs(row['Dtot']) * np.cos(np.deg2rad(angle))
+            dy = np.abs(row['Dtot']) * np.sin(np.deg2rad(angle))
 
-            feature = Feature(geometry=point, properties={"Dx": row['Dx'], "Dy": row['Dy']})
+            feature = Feature(geometry=point, properties={"Dx": dx, "Dy": dy})
             features.append(feature)
 
     feature_collection = FeatureCollection(features)
