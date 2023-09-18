@@ -75,7 +75,7 @@ def pt():
     if f"{PT_ROOT}/{area}/{platform}/{timespan}" not in PT_DIRLIST or not os.path.isfile(f"data/extents/{area}.json"):
         raise ArgumentError("Invalid argument values.")
 
-    # Use separate cached function for generating data
+    # Use separate memoized function for generating data
     return render_pt(area, platform, timespan)
 
 
