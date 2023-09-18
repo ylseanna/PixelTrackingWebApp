@@ -41,6 +41,20 @@ def init():
 init()
 
 
+class ArgumentError(Exception):
+    """Error used when the user inputs invalid argument values"""
+    status_code = 404
+
+    def __init__(self, message, status_code=None):
+        super(ArgumentError, self).__init__(message)
+        self.message = message
+        if status_code is not None:
+            self.status_code = status_code
+
+    def response(self):
+        return {"message": self.message, "status": self.status_code}
+
+
 @app.route('/api')
 def hello():
     return '''<p>This the api gateway</p>'''
@@ -61,11 +75,15 @@ def pt():
 
     # Validate arguments
     if f"{PT_ROOT}/{area}/{platform}/{timespan}" not in PT_DIRLIST or not os.path.isfile(f"data/extents/{area}.json"):
-        # TODO: Return proper error
-        return "Error"
+        raise ArgumentError("Invalid argument values.")
 
     # Use separate cached function for generating data
     return render_pt(area, platform, timespan)
+
+
+@app.errorhandler(ArgumentError)
+def handle_errors(e):
+    return e.response(), e.status_code
 
 
 @cache.memoize()
