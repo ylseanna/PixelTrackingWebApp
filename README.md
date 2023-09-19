@@ -38,8 +38,10 @@ docker compose build
 
 ## Stopping
 
-To stop the services after running the app in either mode and remove containers and volumes, use the following command:
+To stop the services after running the app and remove the containers and network, use the following command:
 
 ```sh
-docker compose down -v
+docker compose down
 ```
+
+Running the app in development mode creates volumes which can be cleaned up by adding the `-v` flag to the command above.
