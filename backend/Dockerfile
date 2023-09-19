@@ -9,11 +9,9 @@ RUN pip install -r requirements.txt --root-user-action=ignore
 RUN addgroup --system --gid 1001 python
 RUN adduser --system --uid 1001 --gid 1001 python
 
-
 USER python
 
 EXPOSE 5000
-
 
 
 FROM dev AS prod
@@ -22,7 +20,7 @@ COPY --chown=python:python . .
 
 # Create Flask cache directory and give ownership to python user
 USER root
-RUN mkdir /app/cache && chown python:python /app/cache
+RUN mkdir cache && chown python:python cache
 USER python
 
 CMD ["gunicorn", "--bind", "0.0.0.0:5000", "wsgi:app"]
