@@ -161,7 +161,7 @@ function DisplacementMap(props: ComponentProps<any>) {
   return <>
     <Image
       // className="rounded-xl"
-
+      priority={true}
       style={
       {
         position:"absolute", 
