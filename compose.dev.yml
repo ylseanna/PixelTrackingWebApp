@@ -15,4 +15,6 @@ services:
       target: dev
     volumes:
       - ./backend:/app:Z
-    command: gunicorn --access-logfile '-' --error-logfile '-' --log-level DEBUG --bind 0.0.0.0:5000 --reload wsgi:app -e ENV=development
+    ports:
+      - "127.0.0.1:5678:5678"
+    command: python -Xfrozen_modules=off -m debugpy --listen 0.0.0.0:5678 -m gunicorn --access-logfile '-' --error-logfile '-' --log-level DEBUG --bind 0.0.0.0:5000 --reload wsgi:app -e ENV=development --timeout 0
