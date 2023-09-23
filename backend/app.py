@@ -89,6 +89,8 @@ def pt():
     # Give list of date ids to allow dynamic generation
     if timespan == None:
         return json.dumps({"timespans": os.listdir(f"{PT_ROOT}/{area}/{platform}")})
+    elif f"{PT_ROOT}/{area}/{platform}/{timespan}" not in PT_DIRLIST:
+        raise ArgumentError("Invalid timespan value.")
 
     # Use separate memoized function for generating data
     return render_pt(area, platform, timespan)
