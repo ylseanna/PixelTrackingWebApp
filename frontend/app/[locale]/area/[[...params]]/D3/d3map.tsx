@@ -122,8 +122,6 @@ function DisplacementMap(props: ComponentProps<any>) {
 
       let vectors = map.append( "g" );
 
-      // vectors.append('clipPath').attr('class', 'rounded-xl')
-
       const colour : string = 'black';
 
       vectors.selectAll("path")
