@@ -36,6 +36,12 @@ If the app code is changed after the first launch, the images need to be rebuilt
 docker compose build
 ```
 
+If the app is already running, `docker compose up` must be run again in order to recreate the containers. The entire update (image and container recreation) can be done all at once using the following command:
+
+```sh
+docker compose up --build -d
+```
+
 ## Stopping
 
 To stop the services after running the app and remove the containers and network, use the following command:
