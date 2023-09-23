@@ -83,12 +83,12 @@ def pt():
     
     # Give list of date ids to allow dynamic generation
     if timespan == None:
-        times = os.listdir(f"{PT_ROOT}/{area}/{platform}")
+        times = json.dumps({"timespans": os.listdir(f"{PT_ROOT}/{area}/{platform}")})
         
         return times
-    else:
-        # Use separate memoized function for generating data
-        return render_pt(area, platform, timespan)
+
+    # Use separate memoized function for generating data
+    return render_pt(area, platform, timespan)
 
 
 @app.errorhandler(ArgumentError)
