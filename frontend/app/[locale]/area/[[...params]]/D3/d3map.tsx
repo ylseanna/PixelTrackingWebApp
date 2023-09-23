@@ -1,19 +1,19 @@
 "use client";
 
 import React, { ComponentProps, useEffect, useRef } from "react";
-import {useTranslations} from 'next-intl';
+import {useTranslations} from "next-intl";
 import Image from "next/image";
 
-import * as d3Base from 'd3'
+import * as d3Base from "d3"
 // @ts-ignore
-import { geoScaleBar } from 'd3-geo-scale-bar'
+import { geoScaleBar } from "d3-geo-scale-bar"
 
 // attach all d3 plugins to the d3 library
 const d3 = Object.assign(d3Base, { geoScaleBar })
 
 
 function DisplacementMap(props: ComponentProps<any>) {
-  const t = useTranslations('Common');
+  const t = useTranslations("Common");
 
   const margin = { top: 0, right: 0, bottom: 80, left: 0 };
 
@@ -44,9 +44,9 @@ function DisplacementMap(props: ComponentProps<any>) {
 
     function calculateScaleCenter(maxlon : number, minlon : number, maxlat: number, minlat : number) {
       let bbox: any = {
-        type: 'Feature',
+        type: "Feature",
         geometry: {
-          type: 'Polygon',
+          type: "Polygon",
           coordinates: [[[minlon,maxlat],[maxlon,maxlat],[maxlon,minlat],[minlon,minlat],[minlon,maxlat]]]
         }
       };
@@ -63,9 +63,9 @@ function DisplacementMap(props: ComponentProps<any>) {
             (maxlat + minlat) / 2];
 
       return {
-        'scale': scale,
-        'center': center,
-        'bbox' : {type: 'FeatureCollection', features: [bbox]}
+        "scale": scale,
+        "center": center,
+        "bbox" : {type: "FeatureCollection", features: [bbox]}
       };
     }
 
@@ -82,7 +82,7 @@ function DisplacementMap(props: ComponentProps<any>) {
     let svg = d3.select(node)
       .append("svg")
       .attr("viewBox", [0, 0, width, height])
-      .attr('preserveAspectRatio', 'xMidYMid meet')
+      .attr("preserveAspectRatio", "xMidYMid meet")
       .attr("style", "max-width: calc(100%); height: calc(100%);");
 
 
@@ -97,14 +97,14 @@ function DisplacementMap(props: ComponentProps<any>) {
       .style("outline-opacity", 0)
       .style("outline", "solid")
       .style("outline-width", 3)
-      .style("outline-offset", '-3px');
+      .style("outline-offset", "-3px");
 
     const scaleBar = d3.geoScaleBar().zoomClamp(false)
       .projection(projection)
       .size([width, height])
       .top(.94)
       .left(0.01)
-      .label(t('km_unit'))
+      .label(t("km_unit"))
       .distance(2);
 
     const bar = map.append("g")
@@ -118,7 +118,7 @@ function DisplacementMap(props: ComponentProps<any>) {
 
       let vectors = map.append("g");
 
-      const colour : string = 'black';
+      const colour : string = "black";
 
       vectors.selectAll("path")
         .data(json.features)
@@ -154,8 +154,8 @@ function DisplacementMap(props: ComponentProps<any>) {
       style={
       {
         position:"absolute",
-        height: 'auto',
-        width: 'calc(100% - 4rem)',
+        height: "auto",
+        width: "calc(100% - 4rem)",
         marginTop: margin.top,
         marginBottom: margin.bottom,
         paddingLeft: margin.left,
@@ -164,7 +164,7 @@ function DisplacementMap(props: ComponentProps<any>) {
       } src={
         `${process.env.NEXT_PUBLIC_APP_BASE_PATH}/media/projected_20100621-20110802.png`
       } width={props.width} height={props.height} alt=""></Image>
-    <div id={props.id} style={{position:"absolute", height: 'auto', width: 'calc(100% - 4rem)'}}></div>
+    <div id={props.id} style={{position:"absolute", height: "auto", width: "calc(100% - 4rem)"}}></div>
   </>;
 }
 export default DisplacementMap;

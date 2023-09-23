@@ -7,7 +7,7 @@ import { useTranslations } from "next-intl";
 
 function VelPlot(props: ComponentProps<any>) {
 
-  const t = useTranslations('Plots');
+  const t = useTranslations("Plots");
 
   useEffect(drawChart, [props.height, props.id, props.width, t]);
 
@@ -25,7 +25,7 @@ function VelPlot(props: ComponentProps<any>) {
     let svg = d3.select(node) //
       .append("svg")
       .attr("viewBox", [0, 0, viewwidth, viewheight])
-      .attr('preserveAspectRatio', 'xMidYMid meet')
+      .attr("preserveAspectRatio", "xMidYMid meet")
       .attr("style", "max-width: calc(100%); height: calc(100%);");
 
 
@@ -60,7 +60,7 @@ function VelPlot(props: ComponentProps<any>) {
           .style("text-anchor", "middle")
           .style("font", "14px Roboto")
           .attr("fill", "black")
-          .text(t('axes_date'));
+          .text(t("axes_date"));
 
         // GENERATE Y-axis
 
@@ -80,7 +80,7 @@ function VelPlot(props: ComponentProps<any>) {
           .style("text-anchor", "middle")
           .style("font", "14px Roboto")
           .attr("fill", "black")
-          .text(t('axes_vel'));
+          .text(t("axes_vel"));
 
         // ADD line
 

@@ -10,13 +10,13 @@ import { useTranslations } from "next-intl";
 
 
 function AreaData() {
-  let t = useTranslations('Area');
+  let t = useTranslations("Area");
 
   return (
     <>
       <div className="flex flex-grow m-8 rounded-2xl shadow-xl bg-white">
-        <div className="w-2/3 p-8 " style={{display: 'block', position: 'relative'}}>
-          <DisplacementMap id = 'DispMap'
+        <div className="w-2/3 p-8 " style={{display: "block", position: "relative"}}>
+          <DisplacementMap id="DispMap"
 
             // size of basemap
             width={1182} 
@@ -37,9 +37,9 @@ function AreaData() {
           </div>
           <Divider flexItem />
           <div className="p-8">
-            <h3 className="mt-0">{t('time_series')}</h3>
+            <h3 className="mt-0">{t("time_series")}</h3>
             <VelPlot 
-            id = 'LinePlot'
+            id="LinePlot"
             width={500} 
             height={200} />
           </div>

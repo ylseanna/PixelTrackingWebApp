@@ -1,26 +1,26 @@
 "use client";
 
 import React, { ComponentProps, useEffect, useRef } from "react";
-import {useTranslations} from 'next-intl';
+import {useTranslations} from "next-intl";
 
-import * as d3Base from 'd3'
+import * as d3Base from "d3"
 // @ts-ignore
-import { geoScaleBar } from 'd3-geo-scale-bar'
+import { geoScaleBar } from "d3-geo-scale-bar"
 
 // attach all d3 plugins to the d3 library
 const d3 = Object.assign(d3Base, { geoScaleBar })
 
 
 function ZoomMap(props: ComponentProps<any>) {
-  const t = useTranslations('Common');
+  const t = useTranslations("Common");
 
   useEffect(drawMap, [props.id, t]);
 
   function drawMap() {
     // data
-    let strandlinaflakar = require('./strandlina_flakar.json');
-    let joklaflakar = require('./flakar_joklar.json');
-    let svaedi = require('./svaedi.json');
+    let strandlinaflakar = require("./strandlina_flakar.json");
+    let joklaflakar = require("./flakar_joklar.json");
+    let svaedi = require("./svaedi.json");
 
     // attachment point
     const node = document.getElementById("#" + props.id)!;
@@ -46,12 +46,12 @@ function ZoomMap(props: ComponentProps<any>) {
     let svg = d3.select(node)
       .append("svg")
       .attr("viewBox", [0, 0, width, height])
-      .attr('preserveAspectRatio', 'xMidYMid meet')
+      .attr("preserveAspectRatio", "xMidYMid meet")
       .attr("style", "max-width: calc(100%); height: calc(100% - 64px);")
       .on("click", reset);
 
 
-    let g = svg.append('g');
+    let g = svg.append("g");
 
     let coast = g.append("g");
 
@@ -84,11 +84,11 @@ function ZoomMap(props: ComponentProps<any>) {
       .attr("cursor", "pointer")
       // @ts-ignore
       .attr("d", geoGenerator)
-      .attr('id', (d,i) => {return svaedi.features[i].properties.id})
+      .attr("id", (d,i) => {return svaedi.features[i].properties.id})
       .style("stroke", "black")
-      .style('fill-opacity', '0')
+      .style("fill-opacity", "0")
       .style("stroke-width", "2")
-      .attr('vector-effect', 'non-scaling-stroke')
+      .attr("vector-effect", "non-scaling-stroke")
       // @ts-ignore
       .on("click", clicked)
       .on("mouseover", function(event, d) {
@@ -107,7 +107,7 @@ function ZoomMap(props: ComponentProps<any>) {
       .left(0.025)
       .tickSize(null)
       .tickFormat((d: number) => d3.format(",")(+d.toFixed(1)))
-      .label(t('km_unit'));
+      .label(t("km_unit"));
 
       const bar = svg.append("g")
       .attr("class", "scale-bar-wrapper")
@@ -152,6 +152,6 @@ function ZoomMap(props: ComponentProps<any>) {
     svg.node();
   };
 
-  return <div id={"#" + props.id} style={{position: 'fixed', height: '100vh', width: '100vw'}}></div>;
+  return <div id={"#" + props.id} style={{position: "fixed", height: "100vh", width: "100vw"}}></div>;
 }
 export default ZoomMap;
