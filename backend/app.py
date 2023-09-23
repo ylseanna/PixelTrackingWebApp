@@ -66,9 +66,14 @@ def testdata():
 
 @app.route('/api/pt_interp')
 def pt_interp():
-    df = pd.read_csv('data/data.csv', parse_dates=[0], dayfirst=True)  # Stinky Americans
+    area = request.args.get('area')
+    
+    if f"{PT_ROOT}/{area}" not in PT_DIRLIST or not os.path.isfile(f"data/extents/{area}.json"):
+        raise ArgumentError("Invalid argument values, please specify a valid area id.")
 
-    return df.to_json(orient='table')
+    times = os.listdir(f"{PT_ROOT}/{area}/{platform}")
+
+    return 'yay'
 
 
 @app.route('/api/pt')
@@ -83,9 +88,7 @@ def pt():
     
     # Give list of date ids to allow dynamic generation
     if timespan == None:
-        times = json.dumps({"timespans": os.listdir(f"{PT_ROOT}/{area}/{platform}")})
-        
-        return times
+        return json.dumps({"timespans": os.listdir(f"{PT_ROOT}/{area}/{platform}")})
 
     # Use separate memoized function for generating data
     return render_pt(area, platform, timespan)
