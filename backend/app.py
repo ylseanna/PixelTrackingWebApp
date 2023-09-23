@@ -64,6 +64,12 @@ def testdata():
 
     return df.to_json(orient='table')
 
+@app.route('/api/pt_interp')
+def pt_interp():
+    df = pd.read_csv('data/data.csv', parse_dates=[0], dayfirst=True)  # Stinky Americans
+
+    return df.to_json(orient='table')
+
 
 @app.route('/api/pt')
 def pt():
@@ -72,11 +78,17 @@ def pt():
     timespan = request.args.get('timespan')
 
     # Validate arguments
-    if f"{PT_ROOT}/{area}/{platform}/{timespan}" not in PT_DIRLIST or not os.path.isfile(f"data/extents/{area}.json"):
+    if f"{PT_ROOT}/{area}/{platform}" not in PT_DIRLIST or not os.path.isfile(f"data/extents/{area}.json"):
         raise ArgumentError("Invalid argument values.")
-
-    # Use separate memoized function for generating data
-    return render_pt(area, platform, timespan)
+    
+    # Give list of date ids to allow dynamic generation
+    if timespan == None:
+        times = os.listdir(f"{PT_ROOT}/{area}/{platform}")
+        
+        return times
+    else:
+        # Use separate memoized function for generating data
+        return render_pt(area, platform, timespan)
 
 
 @app.errorhandler(ArgumentError)
