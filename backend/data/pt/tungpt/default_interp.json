@@ -1,7 +1,8 @@
 {
-    "interpolated values": [
+    "interpolated_values": [
         {
-            "TSX": [
+            "platform": "TSX",
+            "data": [
                 {
                     "cent_time": "2011-01-11T06:47:40",
                     "start_time": "2010-06-21T18:47:36",

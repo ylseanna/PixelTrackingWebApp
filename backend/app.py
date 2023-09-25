@@ -286,9 +286,12 @@ def render_pt_interp(area):
                 }
             )
         
-        platforms_interp.append({platform: interpolated_values})
+        platforms_interp.append({
+            "platform" : platform,
+            "data": interpolated_values
+            })
 
-    return json.dumps({"interpolated values": platforms_interp})
+    return json.dumps({"interpolated_values": platforms_interp})
 
 
 if __name__ == "__main__":

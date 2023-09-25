@@ -4,6 +4,9 @@ import React, { ComponentProps, useEffect } from "react";
 import * as d3 from "d3";
 import { useTranslations } from "next-intl";
 
+import "./interfaces";
+import { InterpResponse } from "./interfaces";
+
 
 function VelPlot(props: ComponentProps<any>) {
 
@@ -29,14 +32,27 @@ function VelPlot(props: ComponentProps<any>) {
       .attr("style", "max-width: calc(100%); height: calc(100%);");
 
 
-      async function Plot() {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_APP_BASE_PATH}/api/testdata`);
+      async function GeneratePlot() {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_APP_BASE_PATH}/api/pt_interp?area=tungpt&method=default`);
 
-        const json = await response.json();
+        const json : InterpResponse = await response.json();
 
         function TimeString(timestring: string) {
           return d3.timeParse("%Y-%m-%dT%H:%M:%S.%L")(timestring);
         }
+
+        let xlim_min : any[] = [];
+        let xlim_max : any[] = [];
+
+        json.interpolated_values.forEach((platform) => {
+
+          xlim_min.push(platform.data[0]["start_time"])
+
+          xlim_max.push(platform.data[platform.data.length - 1]["end_time"])
+        });
+
+        console.log(xlim_min)
+        console.log(xlim_max)
 
         // GENERATE X-axis
         let x = d3.scaleTime()
@@ -103,7 +119,7 @@ function VelPlot(props: ComponentProps<any>) {
 
       }
 
-      Plot();
+      GeneratePlot();
 
     // d3.csv("/public/data.csv", (d) => {
     //   // @ts-ignore
