@@ -5,7 +5,8 @@
         "lmi_data" : "Includes data from the IS 50V dataset by Landmælingar Íslands from 12/2020"
     },
     "Area" : {
-        "time_series" : "Velocity time series"
+        "time_series" : "Velocity time series",
+        "timespan" : "Timespan"
     },
     "Plots" : {
         "axes_date" : "date",
