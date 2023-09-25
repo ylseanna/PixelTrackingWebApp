@@ -6,24 +6,24 @@ import { ThemeOptions, createTheme } from "@mui/material/styles";
 
 export const theme: ThemeOptions = createTheme({
     palette: {
-      mode: "light",
+      mode: 'light',
       primary: {
-        main: "#4c4a43",
+        main: '#10099f',
       },
       secondary: {
-        main: "#d27557",
+        main: '#ffa05f',
       },
       error: {
-        main: "#bd3e3e",
+        main: '#bd3e3e',
       },
       warning: {
-        main: "#b76017",
+        main: '#b76017',
       },
       info: {
-        main: "#3b82a8",
+        main: '#3b82a8',
       },
       success: {
-        main: "#427545",
+        main: '#427545',
       },
     },
     typography: {
