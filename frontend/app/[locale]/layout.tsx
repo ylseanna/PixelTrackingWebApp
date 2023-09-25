@@ -23,6 +23,7 @@ export function generateStaticParams() {
 }
 
 import Header from "./components/Header";
+import { CssBaseline } from "@mui/material";
 
 export default async function RootLayout({
   children, params: {locale}
@@ -37,6 +38,7 @@ export default async function RootLayout({
   }
   return (
     <html lang={locale}>
+      <CssBaseline />
       <ThemeProvider theme={theme}>
         <body className="m-0 h-screen bg-slate-200">  
           <NextIntlClientProvider locale={locale} messages={messages}>        
