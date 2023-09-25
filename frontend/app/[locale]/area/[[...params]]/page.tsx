@@ -1,21 +1,24 @@
 "use client";
 
-import Image from "next/image";
 import VelPlot from "./D3/d3plot";
 import DisplacementMap from "./D3/d3map";
 
-import d3 from "d3";
 import { Divider, Typography } from "@mui/material";
 import { useTranslations } from "next-intl";
 
-function AreaData() {
+function AreaData({ params }: { params: { params: string }}) {
   let t = useTranslations("Area");
+  const svaedi = require("../../D3/svaedi.json");
+  const areaId = params.params[0];
+  // @ts-ignore
+  const areaName = svaedi.features.filter((item) => item.properties.id === areaId)[0].properties.name;
 
   return (
     <>
       <div className="flex flex-grow m-8 rounded-2xl shadow-xl bg-white">
         <div className="w-2/3 p-8 " style={{display: "block", position: "relative"}}>
           <DisplacementMap id="DispMap"
+            area={areaId}
 
             defaultTimespan={"20100621-20110802"}
 
@@ -35,7 +38,7 @@ function AreaData() {
         <div className="flex flex-col w-1/3">
           <div className="flex-grow p-8">
             <Typography variant="h3" style={{fontSize: "14"}}>
-              Tungnakvíslarjökull
+              {areaName}
             </Typography>
           </div>
           <Divider flexItem />

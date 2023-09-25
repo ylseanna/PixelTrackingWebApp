@@ -25,11 +25,14 @@ function DisplacementMap(props: ComponentProps<any>) {
   const margin = { top: 0, right: 0, bottom: 80, left: 0 };
 
   const [timespan, setTimespan] = useState(props.defaultTimespan);
+  const [availableTimespans, setAvailableTimespans] = useState([props.defaultTimespan]);  // Add default timespan as option initially before loading
 
   function onTimespanSelection(e: SelectChangeEvent) {
     // Set timespan state value when new value is selected
     setTimespan(e.target.value as string);
   }
+
+  useEffect(() => { getTimespans(); }, [props.area]);
 
   useEffect(drawMap, [
     props.id,
@@ -46,6 +49,12 @@ function DisplacementMap(props: ComponentProps<any>) {
     timespan,
     t,
   ]);
+
+  async function getTimespans() {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_APP_BASE_PATH}/api/pt?area=${props.area}`);
+    const json = await response.json();
+    setAvailableTimespans(json.timespans);
+  }
 
   function drawMap() {
     // dataCommon
@@ -154,7 +163,7 @@ function DisplacementMap(props: ComponentProps<any>) {
 
     async function plotVectors() {
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_APP_BASE_PATH}/api/pt?timespan=20100621-20110802`
+        `${process.env.NEXT_PUBLIC_APP_BASE_PATH}/api/pt?area=${props.area}&timespan=${timespan}`
       );
 
       const json = await response.json();
@@ -198,26 +207,28 @@ function DisplacementMap(props: ComponentProps<any>) {
     svg.node();
   }
 
-  function generateItems(timespan: string) {
-    const timespans: string[] = timespan.split("-");
-
-    return (
-      <MenuItem value={timespan}>
-        {timespans[0].substring(0, 4) +
-          "-" +
-          timespans[0].substring(4, 6) +
-          "-" +
-          timespans[0].substring(6, 8) +
-          " "}
-        &mdash;
-        {" " +
-          timespans[1].substring(0, 4) +
-          "-" +
-          timespans[1].substring(4, 6) +
-          "-" +
-          timespans[1].substring(6, 8)}
-      </MenuItem>
-    );
+  function generateItems(timespans: string[]) {
+    return timespans.map(timespan => {
+      const timespans: string[] = timespan.split("-");
+  
+      return (
+        <MenuItem value={timespan} key={timespan}>
+          {timespans[0].substring(0, 4) +
+            "-" +
+            timespans[0].substring(4, 6) +
+            "-" +
+            timespans[0].substring(6, 8) +
+            " "}
+          &mdash;
+          {" " +
+            timespans[1].substring(0, 4) +
+            "-" +
+            timespans[1].substring(4, 6) +
+            "-" +
+            timespans[1].substring(6, 8)}
+        </MenuItem>
+      );
+    })
   }
 
   return (
@@ -233,7 +244,7 @@ function DisplacementMap(props: ComponentProps<any>) {
           label={t("Area.timespan")}
           onChange={onTimespanSelection}
         >
-          {generateItems(timespan)}
+          {generateItems(availableTimespans)}
         </Select>
       </FormControl>
       <div className="mt-4">
