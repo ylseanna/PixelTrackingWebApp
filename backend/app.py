@@ -84,7 +84,7 @@ def pt_interp():
         default_response = None
         with open(f"{PT_ROOT}/{area}/default_interp.json") as f:
             default_response = json.load(f)
-        return json.dumps(default_response)
+        return default_response
     elif method == "recalculate":
         return render_pt_interp(area)
     
@@ -104,7 +104,7 @@ def pt():
 
     # Give list of date ids to allow dynamic generation
     if timespan == None:
-        return json.dumps({"timespans": os.listdir(f"{PT_ROOT}/{area}/{platform}")})
+        return {"timespans": os.listdir(f"{PT_ROOT}/{area}/{platform}")}
     elif f"{PT_ROOT}/{area}/{platform}/{timespan}" not in PT_DIRLIST:
         raise ArgumentError("Invalid timespan value.")
 
@@ -291,7 +291,7 @@ def render_pt_interp(area):
             "data": interpolated_values
             })
 
-    return json.dumps({"interpolated_values": platforms_interp})
+    return {"interpolated_values": platforms_interp}
 
 
 if __name__ == "__main__":
