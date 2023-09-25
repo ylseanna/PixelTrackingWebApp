@@ -273,9 +273,9 @@ def render_pt_interp(area):
 
             interpolated_values.append(
                 {
-                    "cent_time": cent_time.isoformat(),
-                    "start_time": start_time.isoformat(),
-                    "end_time": end_time.isoformat(),
+                    "cent_time": cent_time.isoformat(timespec='milliseconds'),
+                    "start_time": start_time.isoformat(timespec='milliseconds'),
+                    "end_time": end_time.isoformat(timespec='milliseconds'),
                     "Dx": interp_Dx,
                     "Dy": interp_Dy,
                     "Dtot": interp_Dtot,
