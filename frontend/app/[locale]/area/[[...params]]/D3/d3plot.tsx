@@ -5,6 +5,9 @@ import * as d3 from "d3";
 import { useTranslations } from "next-intl";
 
 import { InterpResponse } from "./interfaces";
+import { ButtonGroup, IconButton, Tooltip } from "@mui/material";
+import Link from "next/link";
+import { Dataset, Download } from "@mui/icons-material";
 
 function VelPlot(props: ComponentProps<any>) {
   const t = useTranslations("Plots");
@@ -120,6 +123,7 @@ function VelPlot(props: ComponentProps<any>) {
         platformscatter.selectAll("path")
         .data(platform.data)
         .join("circle")
+        // @ts-ignore
           .attr("cx", function (d) {return x(TimeString(d.cent_time)); } )
           .attr("cy", function (d) { return y(d.veltot); } )
           .attr("r", 3)
@@ -177,7 +181,30 @@ function VelPlot(props: ComponentProps<any>) {
   }
 
   return <>
-    <div id={"#" + props.id}></div>
+    <div className={"mb-12"} id={"#" + props.id}></div>
+    <ButtonGroup
+        className="absolute bottom-0 right-0 m-8"
+        variant="contained"
+      >
+        <Tooltip title={"View data"} arrow>
+          <Link href={"/api/pt_interp?area=tungpt&method=default"} target="_blank">
+            <IconButton component="label">
+              <Dataset />
+            </IconButton>
+          </Link>
+        </Tooltip>
+        <Tooltip title={"Download data"} arrow>
+          <Link
+            href={"/api/pt_interp?area=tungpt&method=default"}
+            target="_blank"
+            download={"pt_interp.json"}
+          >
+            <IconButton component="label">
+              <Download />
+            </IconButton>
+          </Link>
+        </Tooltip>
+      </ButtonGroup>
   </>;
 }
 export default VelPlot;

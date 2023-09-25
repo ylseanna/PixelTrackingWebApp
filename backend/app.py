@@ -287,6 +287,7 @@ def render_pt_interp(area):
             )
         
         platforms_interp.append({
+            "coordinates" : {"lat": default_pointlat, "lon": default_pointlon},
             "platform" : platform,
             "data": interpolated_values
             })

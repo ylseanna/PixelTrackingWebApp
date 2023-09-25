@@ -5,9 +5,8 @@ import VelPlot from "./D3/d3plot";
 import DisplacementMap from "./D3/d3map";
 
 import d3 from "d3";
-import { Divider } from "@mui/material";
+import { Divider, Typography } from "@mui/material";
 import { useTranslations } from "next-intl";
-
 
 function AreaData() {
   let t = useTranslations("Area");
@@ -35,10 +34,12 @@ function AreaData() {
         <Divider orientation="vertical" flexItem />
         <div className="flex flex-col w-1/3">
           <div className="flex-grow p-8">
-            <h1 className="mt-0">Tungnakvíslarjökull</h1>
+            <Typography variant="h3" style={{fontSize: "14"}}>
+              Tungnakvíslarjökull
+            </Typography>
           </div>
           <Divider flexItem />
-          <div className="p-8">
+          <div className="p-8 relative">
             <h3 className="mt-0">{t("time_series")}</h3>
             <VelPlot 
             id="LinePlot"
