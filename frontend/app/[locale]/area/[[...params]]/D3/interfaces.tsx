@@ -8,9 +8,9 @@ export interface InterpolatedValue {
 }
 
 export interface Datum {
-    cent_time:  Date;
-    start_time: Date;
-    end_time:   Date;
+    cent_time:  string;
+    start_time: string;
+    end_time:   string;
     Dx:         number;
     Dy:         number;
     Dtot:       number;
