@@ -4,23 +4,32 @@ import React, { ComponentProps, useEffect, useRef } from "react";
 import {useTranslations} from "next-intl";
 import Image from "next/image";
 
+
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select, { SelectChangeEvent } from '@mui/material/Select';
+
 import * as d3Base from "d3"
 // @ts-ignore
 import { geoScaleBar } from "d3-geo-scale-bar"
+import { ButtonGroup, IconButton } from "@mui/material";
+import Link from "next/link";
+import { Dataset, Download } from "@mui/icons-material";
 
 // attach all d3 plugins to the d3 library
 const d3 = Object.assign(d3Base, { geoScaleBar })
 
 
 function DisplacementMap(props: ComponentProps<any>) {
-  const t = useTranslations("Common");
+  const t = useTranslations();
 
   const margin = { top: 0, right: 0, bottom: 80, left: 0 };
 
   useEffect(drawMap, [props.id, props.width, props.height, props.minlon, props.maxlon, props.minlat, props.maxlat, margin.top, margin.right, margin.bottom, margin.left, t]);
 
   function drawMap() {
-    // data
+    // dataCommon
 
 
     // attachment point
@@ -104,7 +113,7 @@ function DisplacementMap(props: ComponentProps<any>) {
       .size([width, height])
       .top(.94)
       .left(0.01)
-      .label(t("km_unit"))
+      .label(t("Common.km_unit"))
       .distance(2);
 
     const bar = map.append("g")
@@ -147,24 +156,72 @@ function DisplacementMap(props: ComponentProps<any>) {
     svg.node();
   };
 
+  function generateItems(timespan : string) {
+    const timespans : string[] = timespan.split("-")
+
+
+    let date1 = new Date(Date.parse())
+    let date2 = new Date(Date.parse(timespans[1].substring(0,4) + "-" + timespans[0].substring(4,6) + "-" + timespans[0].substring(6,8)))
+
+
+
+    return  <MenuItem value={timespan}>{
+      timespans[0].substring(0,4) + "-" + timespans[0].substring(4,6) + "-" + timespans[0].substring(6,8)
+      + " "}&mdash;{" " + timespans[1].substring(0,4) + "-" + timespans[1].substring(4,6) + "-" + timespans[1].substring(6,8)}
+      </MenuItem>
+  };
+
   return <>
-    <Image
-      // className="rounded-xl"
-      priority={true}
-      style={
-      {
-        position:"absolute",
-        height: "auto",
-        width: "calc(100% - 4rem)",
-        marginTop: margin.top,
-        marginBottom: margin.bottom,
-        paddingLeft: margin.left,
-        marginRight: margin.right,
-      }
-      } src={
-        `${process.env.NEXT_PUBLIC_APP_BASE_PATH}/media/projected_20100621-20110802.png`
-      } width={props.width} height={props.height} alt=""></Image>
-    <div id={props.id} style={{position:"absolute", height: "auto", width: "calc(100% - 4rem)"}}></div>
+   <FormControl fullWidth>
+      <InputLabel id="demo-simple-select-label">{t("Area.timespan")}</InputLabel>
+      <Select
+        labelId="demo-simple-select-label"
+        id="demo-simple-select"
+        value={props.timespan}
+        label={t("Area.timespan")}
+        placeholder={props.timespan}
+        onChange={console.log("changed")}
+        >
+          {
+            generateItems(props.timespan)
+          }        
+               
+      </Select>
+    </FormControl>
+    <div className="mt-4">
+      <Image
+        // className="rounded-xl"
+        priority={true}
+        style={
+        {
+          position:"absolute",
+          height: "auto",
+          width: "calc(100% - 4rem)",
+          marginTop: margin.top,
+          marginBottom: margin.bottom,
+          paddingLeft: margin.left,
+          marginRight: margin.right,
+        }
+        } src={
+          `${process.env.NEXT_PUBLIC_APP_BASE_PATH}/media/projected_20100621-20110802.png`
+        } width={props.width} height={props.height} alt=""></Image>
+      <div id={props.id} style={{position:"absolute", height: "auto", width: "calc(100% - 4rem)"}}></div>
+    </div>
+
+    <ButtonGroup className="absolute bottom-0 right-0 m-8" variant="contained">
+      <Link  href={"/api/pt?timespan=" + props.timespan} target="_blank">
+        <IconButton component="label">
+            <Dataset />
+        </IconButton>
+      </Link>
+      <Link  href={"/api/pt?timespan=" + props.timespan} target="_blank" download={"pt_vectors_" + props.timespan + ".json"}>
+        <IconButton component="label">
+            <Download />
+        </IconButton>
+      </Link>
+    </ButtonGroup>
+    
+      
   </>;
 }
 export default DisplacementMap;

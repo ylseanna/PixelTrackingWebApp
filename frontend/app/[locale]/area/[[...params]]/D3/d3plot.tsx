@@ -4,7 +4,6 @@ import React, { ComponentProps, useEffect } from "react";
 import * as d3 from "d3";
 import { useTranslations } from "next-intl";
 
-import "./interfaces";
 import { InterpResponse } from "./interfaces";
 
 function VelPlot(props: ComponentProps<any>) {
@@ -13,7 +12,7 @@ function VelPlot(props: ComponentProps<any>) {
   useEffect(drawChart, [props.height, props.id, props.width, t]);
 
   function drawChart() {
-    let margin = { top: 5, right: 0, bottom: 35, left: 55 },
+    let margin = { top: 5, right: 0, bottom: 40, left: 55 },
       viewwidth = props.width + margin.left + margin.right,
       viewheight = props.height + margin.top + margin.bottom,
       width = props.width - margin.left - margin.right,
@@ -53,8 +52,6 @@ function VelPlot(props: ComponentProps<any>) {
         });
       });
 
-      console.log(ymaxvals)
-
       // GENERATE X-axis
       let x = d3
         .scaleTime()
@@ -82,7 +79,7 @@ function VelPlot(props: ComponentProps<any>) {
         .append("text")
         .attr(
           "transform",
-          "translate(" + viewwidth / 2 + "," + viewheight + ")"
+          "translate(" + viewwidth / 2 + "," + (viewheight - 5) + ")"
         )
         .style("text-anchor", "middle")
         .style("font", "14px Roboto")
@@ -123,7 +120,7 @@ function VelPlot(props: ComponentProps<any>) {
         platformscatter.selectAll("path")
         .data(platform.data)
         .join("circle")
-          .attr("cx", function (d) {console.log(TimeString(d.cent_time)); return x(TimeString(d.cent_time)); } )
+          .attr("cx", function (d) {return x(TimeString(d.cent_time)); } )
           .attr("cy", function (d) { return y(d.veltot); } )
           .attr("r", 3)
           .style("fill", "blue")
@@ -179,6 +176,8 @@ function VelPlot(props: ComponentProps<any>) {
     // });
   }
 
-  return <div id={"#" + props.id}></div>;
+  return <>
+    <div id={"#" + props.id}></div>
+  </>;
 }
 export default VelPlot;

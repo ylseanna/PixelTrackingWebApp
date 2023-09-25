@@ -18,9 +18,11 @@ function AreaData() {
         <div className="w-2/3 p-8 " style={{display: "block", position: "relative"}}>
           <DisplacementMap id="DispMap"
 
+            timespan={"20100621-20110802"}
+
             // size of basemap
-            width={1182} 
-            height={700} 
+            width={1182/1.2} 
+            height={700/1.2} 
             
             // bbox features
             maxlon={-19.259033}
@@ -40,8 +42,8 @@ function AreaData() {
             <h3 className="mt-0">{t("time_series")}</h3>
             <VelPlot 
             id="LinePlot"
-            width={500} 
-            height={200} />
+            width={500/1.3} 
+            height={200/1.3} />
           </div>
         </div>
         
