@@ -17,7 +17,7 @@ function AreaData() {
         <div className="w-2/3 p-8 " style={{display: "block", position: "relative"}}>
           <DisplacementMap id="DispMap"
 
-            timespan={"20100621-20110802"}
+            defaultTimespan={"20100621-20110802"}
 
             // size of basemap
             width={1182/1.2} 

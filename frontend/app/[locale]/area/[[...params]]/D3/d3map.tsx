@@ -1,6 +1,6 @@
 "use client";
 
-import React, { ComponentProps, useEffect, useRef } from "react";
+import React, { ComponentProps, useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 
@@ -24,6 +24,13 @@ function DisplacementMap(props: ComponentProps<any>) {
 
   const margin = { top: 0, right: 0, bottom: 80, left: 0 };
 
+  const [timespan, setTimespan] = useState(props.defaultTimespan);
+
+  function onTimespanSelection(e: SelectChangeEvent) {
+    // Set timespan state value when new value is selected
+    setTimespan(e.target.value as string);
+  }
+
   useEffect(drawMap, [
     props.id,
     props.width,
@@ -36,6 +43,7 @@ function DisplacementMap(props: ComponentProps<any>) {
     margin.right,
     margin.bottom,
     margin.left,
+    timespan,
     t,
   ]);
 
@@ -221,12 +229,11 @@ function DisplacementMap(props: ComponentProps<any>) {
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
-          value={props.timespan}
+          value={timespan}
           label={t("Area.timespan")}
-          placeholder={props.timespan}
-          onChange={console.log("changed")}
+          onChange={onTimespanSelection}
         >
-          {generateItems(props.timespan)}
+          {generateItems(timespan)}
         </Select>
       </FormControl>
       <div className="mt-4">
@@ -262,7 +269,7 @@ function DisplacementMap(props: ComponentProps<any>) {
         variant="contained"
       >
         <Tooltip title={"View data"} arrow>
-          <Link href={"/api/pt?timespan=" + props.timespan} target="_blank">
+          <Link href={"/api/pt?timespan=" + timespan} target="_blank">
             <IconButton component="label">
               <Dataset />
             </IconButton>
@@ -270,9 +277,9 @@ function DisplacementMap(props: ComponentProps<any>) {
         </Tooltip>
         <Tooltip title={"Download data"} arrow>
           <Link
-            href={"/api/pt?timespan=" + props.timespan}
+            href={"/api/pt?timespan=" + timespan}
             target="_blank"
-            download={"pt_vectors_" + props.timespan + ".json"}
+            download={"pt_vectors_" + timespan + ".json"}
           >
             <IconButton component="label">
               <Download />
