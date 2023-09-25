@@ -73,19 +73,19 @@ def testdata():
 def pt_interp():
     area = request.args.get("area")
     
-    method = request.args.get("method", default='recalculate')
+    method = request.args.get("method", default="recalculate")
 
     if f"{PT_ROOT}/{area}" not in PT_DIRLIST or not os.path.isfile(
         f"data/extents/{area}.json"
     ):
         raise ArgumentError("Invalid argument values, please specify a valid area id.")
 
-    if method =='default':
+    if method == "default":
         default_response = None
         with open(f"{PT_ROOT}/{area}/default_interp.json") as f:
             default_response = json.load(f)
         return json.dumps(default_response)
-    elif method == 'recalculate':
+    elif method == "recalculate":
         return render_pt_interp(area)
     
 
@@ -202,7 +202,7 @@ def render_pt_interp(area):
     
     files = os.listdir(f"{PT_ROOT}/{area}")
     
-    for platform in [i for i in files if not i.endswith('.json')]:
+    for platform in [i for i in files if not i.endswith(".json")]:
             
         interpolated_values = []
         
