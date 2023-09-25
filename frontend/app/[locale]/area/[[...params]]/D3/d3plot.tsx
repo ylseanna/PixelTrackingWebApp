@@ -50,8 +50,8 @@ function VelPlot(props: ComponentProps<any>) {
         xlim_min.push(platform.data[0]["start_time"]);
         xlim_max.push(platform.data[platform.data.length - 1]["end_time"]);
 
-        platform.data.forEach(datum => {
-          ymaxvals.push(datum["veltot"] + datum["error"] )
+        platform.data.forEach((datum) => {
+          ymaxvals.push(datum["veltot"] + datum["error"]);
         });
       });
 
@@ -113,81 +113,80 @@ function VelPlot(props: ComponentProps<any>) {
         .attr("fill", "black")
         .text(t("axes_vel"));
 
-      // ADD line
+      // ADD points
 
-      let graph = svg.append("g").attr("id", "graph").attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+      let graph = svg
+        .append("g")
+        .attr("id", "graph")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
       json.interpolated_values.forEach((platform) => {
-        let platformscatter = graph.append("g").attr("id", platform.platform)
+        let platformscatter = graph.append("g").attr("id", platform.platform);
 
-        platformscatter.selectAll("path")
-        .data(platform.data)
-        .join("circle")
-        // @ts-ignore
-          .attr("cx", function (d) {return x(TimeString(d.cent_time)); } )
-          .attr("cy", function (d) { return y(d.veltot); } )
+        platformscatter
+          .selectAll("path")
+          .data(platform.data)
+          .join("circle")
+
+          .each((d: any, i) => {
+            console.log(d);
+
+            const data = [
+              {
+                time: TimeString(d.cent_time),
+                value: d.veltot + d.error,
+              },
+              { 
+                time: TimeString(d.cent_time), 
+                value: d.veltot - d.error 
+              }
+            ];
+
+            var line = d3
+              .line()
+              .x(function (d) {
+                return x(d.time);
+              })
+              .y(function (d) {
+                return y(d.value);
+              });
+
+            platformscatter
+              .append("path")
+              // @ts-ignore
+              .data([data])
+              .attr("d", line)
+              .attr("stroke", "black")
+              .attr("stroke-width", 2);
+          })
+          // @ts-ignore
+          .attr("cx", function (d) {
+            return x(TimeString(d.cent_time));
+          })
+          .attr("cy", function (d) {
+            return y(d.veltot);
+          })
           .attr("r", 3)
           .style("fill", "blue")
-          .style("stroke", "black")      
-      });      
+          .style("stroke", "black");
+      });
     }
 
     GeneratePlot();
-
-    // d3.csv("/public/data.csv", (d) => {
-    //   // @ts-ignore
-    //   return { date: d3.timeParse("%d-%m-%Y")(d.date), value: d.value };
-    // }).then((data) => {
-    //   // Add X axis --> it is a date format
-    //   // @ts-ignore
-    //   let x = d3.scaleTime().domain(d3.extent(data.map((x) => x.date))).range([0, width]);
-    //   svg.append("g")
-    //     .attr("transform", "translate(0," + height + ")")
-    //     .call(d3.axisBottom(x));
-
-    //   // Add Y axis
-    //   let y = d3.scaleLinear()
-    //   // @ts-ignore
-    //     .domain([
-    //       0,
-    //       d3.max(data, function (d) {
-    //         return +!d.value;
-    //       }),
-    //     ])
-    //     .range([height, 0]);
-    //   svg.append("g").call(d3.axisLeft(y));
-
-    //   // Add the line
-    //   svg.append("path")
-    //     .datum(data)
-    //     .attr("fill", "none")
-    //     .attr("stroke", "steelblue")
-    //     .attr("stroke-width", 1.5)
-    //     .attr(
-    //       "d",
-    //       // @ts-ignore
-    //       d3
-    //         .line()
-    //         .x(function(d) {
-    //           // @ts-ignore
-    //           return x(d.date);
-    //         })
-    //         .y(function(d) {
-    //           // @ts-ignore
-    //           return y(d.value);
-    //         })
-    //     );
-    // });
   }
 
-  return <>
-    <div className={"mb-12"} id={"#" + props.id}></div>
-    <ButtonGroup
+  return (
+    <>
+      <div className={"mb-12"} id={"#" + props.id}></div>
+      <ButtonGroup
         className="absolute bottom-0 right-0 m-8"
         variant="contained"
       >
         <Tooltip title={"View data"} arrow>
-          <Link href={"/api/pt_interp?area=tungpt&method=default"} target="_blank">
+          <Link
+            href={"/api/pt_interp?area=tungpt&method=default"}
+            target="_blank"
+          >
             <IconButton component="label">
               <Dataset />
             </IconButton>
@@ -205,6 +204,7 @@ function VelPlot(props: ComponentProps<any>) {
           </Link>
         </Tooltip>
       </ButtonGroup>
-  </>;
+    </>
+  );
 }
 export default VelPlot;

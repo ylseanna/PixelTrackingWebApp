@@ -37,9 +37,9 @@ function AreaData({ params }: { params: { params: string }}) {
         <Divider orientation="vertical" flexItem />
         <div className="flex flex-col w-1/3">
           <div className="flex-grow p-8">
-            <Typography variant="h3" style={{fontSize: "14"}}>
+            <h1 className="mt-0 ">
               {areaName}
-            </Typography>
+            </h1>
           </div>
           <Divider flexItem />
           <div className="p-8 relative">
