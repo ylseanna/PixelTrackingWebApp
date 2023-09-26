@@ -172,7 +172,7 @@ function DisplacementMap(props: ComponentProps<any>) {
 
       const colour: string = "black";//"orangered";
 
-      const baseWidth : number = 3;
+      const baseWidth : number = 4;
 
       svg
       .append('defs')
