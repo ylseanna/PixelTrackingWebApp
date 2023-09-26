@@ -44,10 +44,11 @@ function AreaData({ params }: { params: { params: string }}) {
           <Divider flexItem />
           <div className="p-8 relative">
             <h3 className="mt-0">{t("time_series")}</h3>
-            <VelPlot 
-            id="LinePlot"
-            width={500/1.3} 
-            height={200/1.3} />
+            <VelPlot
+              area={areaId}
+              id="LinePlot"
+              width={500/1.3} 
+              height={200/1.3} />
           </div>
         </div>
         

@@ -33,7 +33,7 @@ function VelPlot(props: ComponentProps<any>) {
 
     async function GeneratePlot() {
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_APP_BASE_PATH}/api/pt_interp?area=tungpt&method=default`
+        `${process.env.NEXT_PUBLIC_APP_BASE_PATH}/api/pt_interp?area=${props.area}&method=default`
       );
 
       const json: InterpResponse = await response.json();
@@ -184,7 +184,7 @@ function VelPlot(props: ComponentProps<any>) {
       >
         <Tooltip title={"View data"} arrow>
           <Link
-            href={"/api/pt_interp?area=tungpt&method=default"}
+            href={`/api/pt_interp?area=${props.area}&method=default`}
             target="_blank"
           >
             <IconButton component="label">
@@ -194,7 +194,7 @@ function VelPlot(props: ComponentProps<any>) {
         </Tooltip>
         <Tooltip title={"Download data"} arrow>
           <Link
-            href={"/api/pt_interp?area=tungpt&method=default"}
+            href={`/api/pt_interp?area=${props.area}&method=default`}
             target="_blank"
             download={"pt_interp.json"}
           >
