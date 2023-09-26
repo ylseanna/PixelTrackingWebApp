@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, make_response
 from flask_caching import Cache
 
 from geojson import Feature, Point, FeatureCollection, dumps
@@ -109,7 +109,12 @@ def pt():
         raise ArgumentError("Invalid timespan value.")
 
     # Use separate memoized function for generating data
-    return render_pt(area, platform, timespan)
+    data = render_pt(area, platform, timespan)
+    
+    # Return response with JSON mimetype
+    response = make_response(data)
+    response.mimetype = "application/json"
+    return response
 
 
 @app.errorhandler(ArgumentError)
