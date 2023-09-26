@@ -12,7 +12,7 @@ import { Dataset, Download } from "@mui/icons-material";
 function VelPlot(props: ComponentProps<any>) {
   const t = useTranslations("Plots");
 
-  useEffect(drawChart, [props.height, props.id, props.width, t]);
+  useEffect(drawChart, [props.height, props.id, props.width, props.area, t]);
 
   function drawChart() {
     let margin = { top: 5, right: 0, bottom: 40, left: 55 },

@@ -47,6 +47,7 @@ function DisplacementMap(props: ComponentProps<any>) {
     margin.bottom,
     margin.left,
     timespan,
+    props.area,
     t,
   ]);
 
