@@ -37,13 +37,33 @@ function AreaData({ params }: { params: { params: string }}) {
         <Divider orientation="vertical" flexItem />
         <div className="flex flex-col w-1/3">
           <div className="flex-grow p-8">
-            <h1 className="mt-0 ">
+            <Typography variant="h3" fontSize={32} component="h1" className="mt-0 mb-3 font-bold ">
               {areaName}
-            </h1>
+            </Typography>
+            <Typography variant="subtitle1" className="mb-4 ml-4">
+              {t("landslide_area")}
+            </Typography>
+            <Typography variant="body1">
+              {t(areaId)}
+            </Typography>
+            <Divider className="mt-4 mb-4"></Divider>
+            <Typography variant="subtitle2" className="">
+              {t("data_credit")}
+            </Typography>
+            <Typography variant="body2">
+              {t("TSX_data_credit")}
+            </Typography>
+            
+            <Typography variant="subtitle2" className="mt-3">
+              {t("support")}
+            </Typography>
+            <Typography variant="body2">
+              {t("support_tungpt")}
+            </Typography>
           </div>
           <Divider flexItem />
           <div className="p-8 relative">
-            <h3 className="mt-0">{t("time_series")}</h3>
+            <Typography variant="h5" className="mt-0 mb-4">{t("time_series")}</Typography>
             <VelPlot
               area={areaId}
               id="LinePlot"

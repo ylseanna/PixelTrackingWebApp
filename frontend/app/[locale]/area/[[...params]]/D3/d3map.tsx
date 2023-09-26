@@ -53,7 +53,7 @@ function DisplacementMap(props: ComponentProps<any>) {
   async function getTimespans() {
     const response = await fetch(`${process.env.NEXT_PUBLIC_APP_BASE_PATH}/api/pt?area=${props.area}`);
     const json = await response.json();
-    setAvailableTimespans(json.timespans);
+    setAvailableTimespans(json.timespans.sort());
   }
 
   function drawMap() {
@@ -170,13 +170,12 @@ function DisplacementMap(props: ComponentProps<any>) {
 
       let vectors = map.append("g");
 
-      const colour: string = "red";
+      const colour: string = "orangered";
 
       vectors
         .selectAll("path")
         .data(json.features)
         .enter()
-        
         .each((d: any, i) => {
           const coords = geoGenerator.centroid(d);
 

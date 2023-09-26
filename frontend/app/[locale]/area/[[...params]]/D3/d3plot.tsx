@@ -123,7 +123,17 @@ function VelPlot(props: ComponentProps<any>) {
       json.interpolated_values.forEach((platform) => {
         let platformscatter = graph.append("g").attr("id", platform.platform);
 
+        svg.append("clipPath")
+        .attr("id","cliprect")
+        .append("rect")        // attach a rectangle
+        .attr("fill", "none")
+        .attr("height", props.height)    // set the height
+        .attr("width", props.width);    // set the width
+
+        const color : string = "teal";
+
         platformscatter
+          .attr("clip-path", "url(#cliprect)")
           .selectAll("path")
           .data(platform.data)
           .join("circle")
@@ -131,7 +141,7 @@ function VelPlot(props: ComponentProps<any>) {
           .each((d: any, i) => {
             console.log(d);
 
-            const data = [
+            const data : any[]= [
               {
                 time: TimeString(d.cent_time),
                 value: d.veltot + d.error,
@@ -145,9 +155,11 @@ function VelPlot(props: ComponentProps<any>) {
             var line = d3
               .line()
               .x(function (d) {
+                // @ts-ignore
                 return x(d.time);
               })
               .y(function (d) {
+                // @ts-ignore
                 return y(d.value);
               });
 
@@ -156,19 +168,19 @@ function VelPlot(props: ComponentProps<any>) {
               // @ts-ignore
               .data([data])
               .attr("d", line)
-              .attr("stroke", "black")
-              .attr("stroke-width", 2);
+              .attr("stroke", color)
+              .attr("stroke-width", 2.5)
+              .attr("stroke-linecap","round");
           })
-          // @ts-ignore
           .attr("cx", function (d) {
+            // @ts-ignore
             return x(TimeString(d.cent_time));
           })
           .attr("cy", function (d) {
             return y(d.veltot);
           })
-          .attr("r", 3)
-          .style("fill", "blue")
-          .style("stroke", "black");
+          .attr("r", 4)
+          .style("fill", color);
       });
     }
 

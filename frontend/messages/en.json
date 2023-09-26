@@ -5,8 +5,15 @@
         "lmi_data" : "Includes data from the IS 50V dataset by Landmælingar Íslands from 12/2020"
     },
     "Area" : {
+        "area" : "Area",
         "time_series" : "Velocity time series",
-        "timespan" : "Timespan"
+        "timespan" : "Timespan",
+        "landslide_area": "Landslide area",
+        "data_credit" : "Data credit:",
+        "TSX_data_credit" : "TerraSAR-X (Deutsches Zentrum für Luft- und Raumfahrt)",
+        "support" : "Supported by:",
+        "support_tungpt" : "The pixel tracking project was funded by a the Icelandic Student Innovation Fund (Nýsköpunarsjóður námsmanna) of Rannís (Rannsóknamiðstöð Íslands), grant number: 2311501-1101. The project was also supported by the Institute of Earth Sciences, University of Iceland.",
+        "tungpt" : "The pixel tracking data presented here covers the landslide to the north of Tungnakvíslarjökull, an outlet glacier of Mýrdalsjökull. Its movement is triggered by glacial retreat over the past century and has been occuring since at least 1945."
     },
     "Plots" : {
         "axes_date" : "date",
