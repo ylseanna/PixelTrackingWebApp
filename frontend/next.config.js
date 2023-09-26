@@ -1,11 +1,11 @@
-/** @type {import('next').NextConfig} */
+/** @type {import("next").NextConfig} */
 
 const basePath = process.env.NEXT_PUBLIC_APP_BASE_PATH;
-const defaultLocale = 'en';
+const defaultLocale = "en";
 
 module.exports = {
   reactStrictMode: false,
-  output: 'standalone',
+  output: "standalone",
   basePath: basePath,
   // Redirect basePath to path with locale due to next-intl not supporting basePath
   async redirects() {

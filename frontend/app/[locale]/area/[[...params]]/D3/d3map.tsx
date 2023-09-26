@@ -175,18 +175,18 @@ function DisplacementMap(props: ComponentProps<any>) {
       const baseWidth : number = 4;
 
       svg
-      .append('defs')
-      .append('marker')
-      .attr('id', 'arrow')
-      .attr('viewBox', [0, 0, baseWidth, baseWidth])
-      .attr('refX', baseWidth)
-      .attr('refY', baseWidth/2)
-      .attr('markerWidth', baseWidth)
-      .attr('markerHeight', baseWidth)
-      .attr('orient', 'auto-start-reverse')
-      .append('path')
-      .attr('d', d3.line()([[0, 0], [0, baseWidth], [baseWidth, baseWidth/2]]))
-      .attr('stroke', 'black');
+      .append("defs")
+      .append("marker")
+      .attr("id", "arrow")
+      .attr("viewBox", [0, 0, baseWidth, baseWidth])
+      .attr("refX", baseWidth)
+      .attr("refY", baseWidth/2)
+      .attr("markerWidth", baseWidth)
+      .attr("markerHeight", baseWidth)
+      .attr("orient", "auto-start-reverse")
+      .append("path")
+      .attr("d", d3.line()([[0, 0], [0, baseWidth], [baseWidth, baseWidth/2]]))
+      .attr("stroke", "black");
 
       vectors
         .selectAll("path")
