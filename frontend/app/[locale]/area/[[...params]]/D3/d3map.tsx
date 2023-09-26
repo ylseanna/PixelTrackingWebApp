@@ -170,7 +170,23 @@ function DisplacementMap(props: ComponentProps<any>) {
 
       let vectors = map.append("g");
 
-      const colour: string = "orangered";
+      const colour: string = "black";//"orangered";
+
+      const baseWidth : number = 3;
+
+      svg
+      .append('defs')
+      .append('marker')
+      .attr('id', 'arrow')
+      .attr('viewBox', [0, 0, baseWidth, baseWidth])
+      .attr('refX', baseWidth)
+      .attr('refY', baseWidth/2)
+      .attr('markerWidth', baseWidth)
+      .attr('markerHeight', baseWidth)
+      .attr('orient', 'auto-start-reverse')
+      .append('path')
+      .attr('d', d3.line()([[0, 0], [0, baseWidth], [baseWidth, baseWidth/2]]))
+      .attr('stroke', 'black');
 
       vectors
         .selectAll("path")
@@ -191,11 +207,12 @@ function DisplacementMap(props: ComponentProps<any>) {
             // @ts-ignore
             .attr("points", [coords, secondarycoords])
             .attr("stroke", "black")
-            .attr("stroke-width", 2);
+            .attr("stroke-width", 2)
+            .attr("marker-end", "url(#arrow)");;
         })
         .append("path")              
         // @ts-ignore
-        .attr("d", geoGenerator.pointRadius(2.5))
+        .attr("d", geoGenerator.pointRadius(2))
         .attr("fill", colour)
         .attr("stroke", "black")
         .attr("stroke-width", "1");
