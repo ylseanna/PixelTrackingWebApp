@@ -10,10 +10,10 @@
         "timespan" : "Tímabil",
         "landslide_area": "Jarðskriðssvæði",
         "data_credit" : "Gagnaheimildar:",
-        "TSX_data_credit" : "TerraSAR-X (Deutsches Zentrum für Luft- und Raumfahrt)",
-        "support" : "(en) Supported by:",
-        "support_tungpt" : "(en) The pixel tracking project was funded by a the Icelandic Student Innovation Fund (Nýsköpunarsjóður námsmanna) of Rannís (Rannsóknamiðstöð Íslands), grant number: 2311501-1101. The project was also supported by the Institute of Earth Sciences, University of Iceland.",
-        "tungpt" : "(en) The pixel tracking data presented here covers the landslide to the north of Tungnakvíslarjökull, an outlet glacier of Mýrdalsjökull. Its movement is triggered by glacial retreat over the past century and has been occuring since at least 1945."
+        "TSX_data_credit" : "TerraSAR-X (Deutsches Zentrum für Luft- und Raumfahrt); ÍslandsDEM (Landmælingar Íslands)",
+        "support" : "Styrkt af:",
+        "support_tungpt" : "Nýsköpunarsjóð námsmanna Rannsóknamiðstöðvar Íslands (númer: 2311501-1101); Jarðvísindastofnun Háskóla Íslands.",
+        "tungpt" : "Myndpunktahnikagögn hér nær yfir jarðskriðið að norðan Tungnakvíslarjökli, skriðjökull Mýrdalsjökuls. Skriðið orsakast af hopi jökli í siðasta öld og hefur verið að hreyfa siðan á minnsta kosti 1945."
     },
     "Plots" : {
         "axes_date" : "tímasetning",

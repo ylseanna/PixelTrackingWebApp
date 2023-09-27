@@ -293,7 +293,7 @@ function DisplacementMap(props: ComponentProps<any>) {
       </div>
 
       <ButtonGroup
-        className="absolute bottom-0 right-0 m-8"
+        className="absolute bottom-0 right-0 m-8 bg-white"
         variant="contained"
       >
         <Tooltip title={"View data"} arrow>
