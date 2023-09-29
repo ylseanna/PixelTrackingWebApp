@@ -152,8 +152,8 @@ function DisplacementMap(props: ComponentProps<any>) {
       .zoomClamp(false)
       .projection(projection)
       .size([width, height])
-      .top(0.94)
-      .left(0.01)
+      .top(0.04)
+      .left(1 - 0.28)
       .label(t("Common.km_unit"))
       .distance(2);
 
